@@ -1,4 +1,4 @@
-@extends('templates/index&login')
+@extends('templates/main')
 
 @section('titre', 'Connection')
 

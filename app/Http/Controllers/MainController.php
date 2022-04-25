@@ -13,20 +13,12 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('index-&-login/index');
+        return view('main/index');
     }
     public function connection(){
-        return view('index-&-login/connection');
+        return view('main/connection');
     }
-    public function etudiant(){
-        return view('index-&-login/login-etudiant');
-    }
-    public function membre_jury(){
-        return view('index-&-login/login-membrejury');
-    }
-    public function admin(){
-        return view('index-&-login/login-admin');
-    }
+
 
     /**
      * Show the form for creating a new resource.
