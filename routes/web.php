@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Controlleur dyal page accueil & login
-Route::get('/accueil', [IndexController::class, 'index']);
-Route::get('/', [IndexController::class, 'index']);
-Route::get('/connection', [IndexController::class, 'connection']);
+Route::get('/accueil', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index']);
+Route::get('/connection', [MainController::class, 'connection']);
 
 
