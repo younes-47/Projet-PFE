@@ -20,7 +20,7 @@ Route::get('/', [MainController::class, 'index']);
 
 
 
-
+//authentification b wahd commande smitha livewire
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,5 +30,19 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
+//page admin li fiha les etudiants
 Route::get('/listeEtudiant',[App\Http\Controllers\AdminController::class,'listeEtudiant']);
+
+Route::get('ajouterEtudiant',function(){
+    return view('admin-panel/ajouterEtudiant');
+});
+Route::post('ajouterEtudiant',[App\Http\Controllers\AdminController::class,'ajouterEtudiant']);
+Route::get('supprimerEtudiant/{id}',[App\Http\Controllers\AdminController::class,'supprimerEtudiant']);
+Route::get('afficherModifierEtudiant/{id}',[App\Http\Controllers\AdminController::class,'afficherModifierEtudiant']);
+Route::put('afficherModifierEtudiant/modifierEtudiant/{id}',[App\Http\Controllers\AdminController::class,'modifierEtudiant']);
+Route::get('/listeJury',[App\Http\Controllers\AdminController::class,'listeJury']);
+Route::get('ajouterJury',function(){
+    return view('admin-panel/ajouterJury');
+});
+Route::post('ajouterJury',[App\Http\Controllers\AdminController::class,'ajouterJury']);
+Route::get('supprimerJury/{id}',[App\Http\Controllers\AdminController::class,'supprimerJury']);

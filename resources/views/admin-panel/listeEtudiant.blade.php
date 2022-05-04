@@ -128,7 +128,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/fournisseurTable" class="nav-link">
+                <a href="/listeJury" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jury</p>
                 </a>
@@ -769,7 +769,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="#" class="btn btn-success pull-right">Ajouter</a>
+                                    <a href="ajouterEtudiant" class="btn btn-success pull-right">Ajouter</a>
                                 </div>
                                 <nav class="navbar navbar-light bg-light">
  
@@ -807,8 +807,8 @@
                                         
                                         <td>{{$item['filiere']}}</td>
                                         
-                                        <td> <a href="supprimerClient/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a></td>
-                                        <td> <a href="afficherModifierClient/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
+                                        <td> <a href="supprimerEtudiant/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a></td>
+                                        <td> <a href="afficherModifierEtudiant/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
                                         
                                     </tr>
                                 @endforeach

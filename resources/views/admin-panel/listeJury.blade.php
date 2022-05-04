@@ -1,3 +1,5 @@
+@extends('admin-panel/styles')
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +30,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+
 <x-app-layout>
 <div class="wrapper">
 
@@ -51,9 +54,9 @@
           <i class="fas fa-search"></i>
         </a>
         <div class="navbar-search-block">
-          <form class="form-inline">
+          <form class="form-inline" action="/chercherClient">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" style="height:40px;" name="query">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -119,13 +122,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/listeEtudiant" class="nav-link ">
+                <a href="/listeEtudiant" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Etudiants</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/listeEtudiant" class="nav-link ">
+                <a href="/listeJury" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jury</p>
                 </a>
@@ -133,7 +136,7 @@
               <li class="nav-item">
                 <a href="/produitTable" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Produits</p>
+                  <p>Chi haja</p>
                 </a>
               </li>
             </ul>
@@ -750,6 +753,75 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
       @yield('content')
+
+      <div class="container" style="padding:30px 0;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-6">
+                                   <strong> Liste des Jurys </strong>
+                                    @if (session('status'))
+                                    <div class="alert alert-success" role="alert" style=" background-color:lightblue; color:black;">
+                                        {{ session('status')}}
+                                    </div>
+                                    @endif
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="ajouterJury" class="btn btn-success pull-right">Ajouter</a>
+                                </div>
+                                <nav class="navbar navbar-light bg-light">
+ 
+                            </div>
+                    </div>
+                
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Date de naissance</th>
+                                    <th>Ville de naissance</th>
+                                    
+                                    
+                                    <th>Matière</th>
+                                   <div class="action">
+                                    <th>Action</th>
+                                    </div>
+                                
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($jurys as $item)
+                                    <tr>
+                                        <td>{{$item['id']}}</td>
+                                        <td>{{$item['nom']}}</td>
+                                        
+                                        <td>{{$item['prenom']}}</td>
+                                        <td>{{$item['date_naissance']}}</td>
+                                        <td>{{$item['ville_naissance']}}</td>
+                                        
+                                        <td>{{$item['matiere']}}</td>
+                                        
+                                        <td> <a href="supprimerJury/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a></td>
+                                        <td> <a href="afficherModifierEtudiant/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
+                                        
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
       
   </div>
   <!-- /.content-wrapper -->
@@ -805,5 +877,10 @@
 <!--<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>-->
 </x-app-layout> 
 </body>
-
 </html>
+
+
+
+
+
+    

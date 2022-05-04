@@ -27,7 +27,7 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{{URL::to('/accueil')}}"><Img src="{{ asset('img/estLogo.png') }}"></a>
-                <a class="btn btn-primary" href="{{URL::to('/connection')}}">Se connecter</a>
+                <a class="btn btn-primary" href="{{URL::to('/login')}}">Se connecter</a>
             </div>
         </nav>
         
