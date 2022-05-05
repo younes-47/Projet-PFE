@@ -54,7 +54,7 @@
           <i class="fas fa-search"></i>
         </a>
         <div class="navbar-search-block">
-          <form class="form-inline" action="/chercherClient">
+          <form class="form-inline" action="/chercherJury">
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" style="height:40px;" name="query">
               <div class="input-group-append">
@@ -122,19 +122,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/listeEtudiant" class="nav-link active">
+                <a href="/listeEtudiant" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Etudiants</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/listeJury" class="nav-link">
+                <a href="/listeJury" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jury</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/listeSoutenance" class="nav-link">
+                <a href="/listeSoutenance" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Soutenances</p>
                 </a>
@@ -761,7 +761,7 @@
                     <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-6">
-                                   <strong> Liste des etudiants </strong>
+                                   <strong> Liste des Soutenances </strong>
                                     @if (session('status'))
                                     <div class="alert alert-success" role="alert" style=" background-color:lightblue; color:black;">
                                         {{ session('status')}}
@@ -769,7 +769,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="ajouterEtudiant" class="btn btn-success pull-right">Ajouter</a>
+                                    <a href="#" class="btn btn-success pull-right">Ajouter</a>
                                 </div>
                                 <nav class="navbar navbar-light bg-light">
  
@@ -781,13 +781,15 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Prenom</th>
-                                    <th>Date de naissance</th>
-                                    <th>Ville de naissance</th>
+                                    <th>Nom d'etudiant</th>
+                                    <th>Prenom d'etudiant</th>
+                                    <th>Projet</th>
+                                    <th>N° Salle</th>
+                                    <th>Date de soutenance</th>
                                     
                                     
-                                    <th>Filière</th>
+                                    
+                                    <th>Juries</th>
                                    <div class="action">
                                     <th>Action</th>
                                     </div>
@@ -796,19 +798,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($etudiants as $item)
+                                @foreach ($soutenances as $item)
                                     <tr>
                                         <td>{{$item['id']}}</td>
-                                        <td>{{$item['nom']}}</td>
+                                        <td>{{$item['nom_etudiant']}}</td>
                                         
-                                        <td>{{$item['prenom']}}</td>
-                                        <td>{{$item['date_naissance']}}</td>
-                                        <td>{{$item['ville_naissance']}}</td>
+                                        <td>{{$item['prenom_etudiant']}}</td>
+                                        <td>{{$item['projet']}}</td>
+                                        <td>{{$item['num_salle']}}</td>
                                         
-                                        <td>{{$item['filiere']}}</td>
+                                        <td>{{$item['jury1']}},<br>{{$item['jury2']}},<br>{{$item['jury3']}}</td>
                                         
-                                        <td> <a href="supprimerEtudiant/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a></td>
-                                        <td> <a href="afficherModifierEtudiant/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
+                                        <td> <a href="supprimerJury/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a></td>
+                                        <td> <a href="afficherModifierJury/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
                                         
                                     </tr>
                                 @endforeach

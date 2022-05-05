@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Etudiant;
 use App\Models\Jury;
+use App\Models\Soutenance;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -110,5 +111,9 @@ class AdminController extends Controller
     {
         $data= Jury::where('nom', 'like', '%'.$req->input('query').'%')->get();
         return view('admin-panel/chercherJury',['juries'=>$data]);
+    }
+    function listeSoutenance(){
+        $data = Soutenance::all();
+        return view('admin-panel/listeSoutenance',['soutenances' => $data]);
     }
 }

@@ -49,3 +49,5 @@ Route::get('supprimerJury/{id}',[App\Http\Controllers\AdminController::class,'su
 Route::get('afficherModifierJury/{id}',[App\Http\Controllers\AdminController::class,'afficherModifierJury']);
 Route::put('afficherModifierJury/modifierJury/{id}',[App\Http\Controllers\AdminController::class,'modifierJury']);
 Route::get('chercherJury',[App\Http\Controllers\AdminController::class,'chercherJury']);
+
+Route::get('/listeSoutenance',[App\Http\Controllers\AdminController::class,'listeSoutenance']);

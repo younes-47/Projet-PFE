@@ -134,7 +134,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/produitTable" class="nav-link">
+                <a href="/listeSoutenance" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Chi haja</p>
                 </a>
