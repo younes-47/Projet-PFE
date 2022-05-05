@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Laravel\Fortify\Fortify;
 
-return new class extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,16 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom');
+            $table->integer('role')->default('0');
+            $table->string('email')->unique();
+            $table->string('password')->unique();
+            $table->rememberToken();
+            $table->timestamps();
+        });
+
         Schema::table('users', function (Blueprint $table) {
             $table->text('two_factor_secret')
                     ->after('password')
@@ -38,6 +48,8 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('users');
+
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn(array_merge([
                 'two_factor_secret',
@@ -47,4 +59,4 @@ return new class extends Migration
             ] : []));
         });
     }
-};
+}

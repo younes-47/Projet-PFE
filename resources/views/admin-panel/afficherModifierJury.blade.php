@@ -1,5 +1,6 @@
-@extends('admin-panel/styles')
+@extends('dashboard')
 
+@section('content')
 <div class="container" style="padding:30px 0;">
         <div class="row">
             <div class="col-md-12">
@@ -71,5 +72,5 @@
             </div>
         </div>
 </div>
-
+@endsection
                             

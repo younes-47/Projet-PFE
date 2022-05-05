@@ -1,6 +1,5 @@
 
-
-        @extends('templates/main')
+@extends('templates/main')
 
 @section('titre', 'Connection')
 

@@ -23,6 +23,7 @@ class CreateSoutenancesTable extends Migration
             $table->string('jury1');
             $table->string('jury2');
             $table->string('jury3');
+            $table->integer('note');
             $table->timestamps();
         });
     }
