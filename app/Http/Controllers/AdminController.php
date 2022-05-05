@@ -91,4 +91,24 @@ class AdminController extends Controller
         return redirect('/listeJury');
 
     }
+    function afficherModifierJury($id){
+        $juries= Jury::findOrFail($id);
+        return view('admin-panel/afficherModifierJury')->with('juries', $juries);
+    }
+    function modifierJury($id, Request $req){
+        $jury = Jury::find($id);
+        $jury->nom = $req->input('nom');
+        $jury->prenom = $req->input('prenom');
+        $jury->date_naissance = $req->input('date_naissance');
+        $jury->ville_naissance = $req->input('ville_naissance');
+        $jury->matiere= $req->input('matiere');
+        $jury->update();
+        return redirect('/listeJury')->with('status',' Le Jury est bien modifié');
+        
+    }
+    function chercherJury(Request $req)
+    {
+        $data= Jury::where('nom', 'like', '%'.$req->input('query').'%')->get();
+        return view('admin-panel/chercherJury',['juries'=>$data]);
+    }
 }

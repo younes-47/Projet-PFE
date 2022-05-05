@@ -7,7 +7,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Modifier etudiant
+                                Modifier Jury
                             </div>
                            
                         </div>
@@ -15,35 +15,35 @@
                     <div class="panel-body">
                     
                     
-                        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="modifierEtudiant/{{$etudiants->id}}">
+                        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="modifierJury/{{$juries->id}}">
                             {{ csrf_field() }}
                             {{ method_field('PUT')}}
                             <div class="form-group">
                             @csrf
-                                <label class="col-md-4 control-label">Nom d'etudiant</label>
+                                <label class="col-md-4 control-label">Nom du jury</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Nom d'etudiant'" class="form-control input-md" name="nom" value="{{$etudiants['nom']}}"/>
+                                    <input type="text" placeholder="Nom du jury" class="form-control input-md" name="nom" value="{{$juries['nom']}}"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Prenom d'etudiant</label>
+                                <label class="col-md-4 control-label">Prenom du jury</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Prenom du client" class="form-control input-md" name="prenom" value="{{$etudiants['prenom']}}"/>
+                                    <input type="text" placeholder="Prenom du client" class="form-control input-md" name="prenom" value="{{$juries['prenom']}}"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Date de naissance</label>
                                 <div class="col-md-4">
-                                    <input type="date" placeholder="Date de naissance" class="form-control input-md" name="date_naissance" value="{{$etudiants['date_naissance']}}"/>
+                                    <input type="date" placeholder="Date de naissance" class="form-control input-md" name="date_naissance" value="{{$juries['date_naissance']}}"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Ville de naissance</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Ville de naissance" class="form-control input-md" name="ville_naissance" value="{{$etudiants['ville_naissance']}}"/>
+                                    <input type="text" placeholder="Ville de naissance" class="form-control input-md" name="ville_naissance" value="{{$juries['ville_naissance']}}"/>
                                 </div>
                             </div>
 
@@ -51,9 +51,9 @@
                         
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Filière</label>
+                                <label class="col-md-4 control-label">Matière</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Filière" class="form-control input-md" name="filiere" value="{{$etudiants['filiere']}}"/>
+                                    <input type="text" placeholder="Filière" class="form-control input-md" name="matiere" value="{{$juries['matiere']}}"/>
                                 </div>
                             </div>
                             
@@ -61,7 +61,7 @@
                                 <label class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-primary">Modifier</button>
-                                    <a href="/listeEtudiant" class="btn btn-primary" style="background-color:green;">Annuler</a>
+                                    <a href="/listeJury" class="btn btn-primary" style="background-color:green;">Annuler</a>
                                 </div>
                             </div>
 

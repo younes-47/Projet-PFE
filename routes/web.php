@@ -46,3 +46,6 @@ Route::get('ajouterJury',function(){
 });
 Route::post('ajouterJury',[App\Http\Controllers\AdminController::class,'ajouterJury']);
 Route::get('supprimerJury/{id}',[App\Http\Controllers\AdminController::class,'supprimerJury']);
+Route::get('afficherModifierJury/{id}',[App\Http\Controllers\AdminController::class,'afficherModifierJury']);
+Route::put('afficherModifierJury/modifierJury/{id}',[App\Http\Controllers\AdminController::class,'modifierJury']);
+Route::get('chercherJury',[App\Http\Controllers\AdminController::class,'chercherJury']);
