@@ -26,6 +26,26 @@
                                 <li><a class="dropdown-item" href="#">Changer Mot de passe</a></li>
                                 
                                 <li><hr class="dropdown-divider"/></li>
+                                <!-- Account Management -->
+                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                    {{ __('Profile') }}
+                </x-jet-responsive-nav-link>
+
+                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                    <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+                        {{ __('API Tokens') }}
+                    </x-jet-responsive-nav-link>
+                @endif
+                <x-slot name="content">
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+
+                    <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                                   @click.prevent="$root.submit();">
+                        {{ __('Log Out') }}
+                    </x-jet-responsive-nav-link>
+                </form>
                                 <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
                             </ul>
                         </li>
@@ -50,3 +70,5 @@
         <script src="{{asset('js/scripts.js')}}"></script>
     </body>
 </html>
+
+

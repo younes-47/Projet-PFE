@@ -40,6 +40,7 @@ class AdminController extends Controller
         $etudiant->adresse = $req->adresse;
         $etudiant->num_telephone = $req->num_telephone;
         $etudiant->filiere = $req->filiere;
+         DB::table('etudiants')->join('users','etudiants.user_id',"=",'users.id');
         $user = new User();
         $user->email= $req->email;
         $user->password = Hash::make($req->password);
