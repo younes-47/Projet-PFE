@@ -8,12 +8,18 @@ use App\Models\Etudiant;
 use App\Models\Jury;
 use App\Models\User;
 use App\Models\Soutenance;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\DocBlock\Tags\Source;
 
 class AdminController extends Controller
 {
     
+
+    function dashboard(){
+        return view('admin-panel.accueil');
+    }
 
     function listeEtudiant(){
         $data = Etudiant::all();
@@ -134,5 +140,10 @@ class AdminController extends Controller
     function listeSoutenance(){
         $data = Soutenance::all();
         return view('admin-panel/listeSoutenance',['soutenances' => $data]);
+    }
+
+    function logout(){
+        Auth::logout();
+        return redirect('/accueil');
     }
 }

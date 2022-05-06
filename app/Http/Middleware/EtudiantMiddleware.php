@@ -17,6 +17,10 @@ class EtudiantMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if(Auth::user()->role == '0'){
+            return $next($request);
+        }else{
+            return redirect()->back();
+        }   
     }
 }

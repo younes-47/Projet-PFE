@@ -13,7 +13,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}"> -->
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- JQVMap -->
@@ -26,67 +26,13 @@
   <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
-  <style>
-        nav svg{
-            height: 20px;
-        }
-        nav.hidden{
-            display: block !important;
-        }
-        .content {
-          padding-top: 40px;
-          padding-bottom: 40px;
-        }
-        .icon-stat {
-            display: block;
-            overflow: hidden;
-            position: relative;
-            padding: 15px;
-            margin-bottom: 1em;
-            background-color: #fff;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-        .icon-stat-label {
-            display: block;
-            color: #999;
-            font-size: 13px;
-        }
-        .icon-stat-value {
-            display: block;
-            font-size: 28px;
-            font-weight: 600;
-        }
-        .icon-stat-visual {
-            position: relative;
-            top: 22px;
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 16px;
-            line-height: 30px;
-        }
-        .bg-primary {
-            color: #fff;
-            background: #d74b4b;
-        }
-        .bg-secondary {
-            color: #fff;
-            background: #6685a4;
-        }
-        
-        .icon-stat-footer {
-            padding: 10px 0 0;
-            margin-top: 10px;
-            color: #aaa;
-            font-size: 12px;
-            border-top: 1px solid #eee;
-        }
-
-</style>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+  <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -97,6 +43,7 @@
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -107,28 +54,25 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user" style="font-size: large;"></i></a>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <!-- <a class="dropdown-item" href="#!">Action</a>
+            <a class="dropdown-item" href="#!">Another action</a> -->
+            <!-- <div class="dropdown-divider"></div> -->
+            <!-- <a class="dropdown-item" href="{{URL::to('/adminlogout')}}">Se déconnecter</a> -->
+
+            <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                        {{ __('Se déconnecter') }}
+                    </x-jet-responsive-nav-link>
+                </form>
         </div>
       </li>
-
       
      
       <li class="nav-item">
@@ -155,7 +99,7 @@
       
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      <!-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -164,13 +108,19 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item">
+                <a href="/dashboard" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>Statistiques</p>
+                </a>
+              </li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -189,19 +139,19 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/listeEtudiant" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Etudiants</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/listeJury" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon text-info"></i>
                   <p>Jury</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/listeSoutenance" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon text-warning"></i>
                   <p>Soutenances</p>
                 </a>
               </li>
@@ -217,24 +167,24 @@
 
   <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-          <div class="vertical-center">
+          
             <div class="container">
             @yield('content')
             </div>
-          </div>
+          
 
         </div>
       
       
   
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <!-- <footer class="main-footer">
     <strong>Copyright &copy; 2022-2023 <a href="https://est.uit.ac.ma/" target="_blank">EST Kénitra</a>.</strong>
     Tout droits réservés.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0-rc
     </div>
-  </footer>
+  </footer> -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -278,6 +228,16 @@
 <!--<script src="{{ asset('dist/js/demo.js') }}"></script>-->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!--<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>-->
+
+
+<script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('js/datatables-demo.js') }}"></script>
+<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/jquery.easing.min.js') }}"></script>
+
 </x-app-layout> 
 </body>
 
