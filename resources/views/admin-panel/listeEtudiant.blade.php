@@ -18,7 +18,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="ajouterEtudiant" class="btn btn-success pull-right" style="float:center">Ajouter</a>
+                                    <a href="ajouterEtudiant" class="btn btn-success pull-right" style="float:right;">Ajouter</a>
                                 </div>
                                 <nav class="navbar navbar-light bg-light">
  

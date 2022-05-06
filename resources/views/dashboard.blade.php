@@ -70,7 +70,7 @@
                                     this.closest('form').submit();">
                         {{ __('Se déconnecter') }}
                     </x-jet-responsive-nav-link>
-                </form>
+            </form>
         </div>
       </li>
       
@@ -146,7 +146,7 @@
               <li class="nav-item">
                 <a href="/listeJury" class="nav-link ">
                   <i class="far fa-circle nav-icon text-info"></i>
-                  <p>Jury</p>
+                  <p>Membres des Jurys</p>
                 </a>
               </li>
               <li class="nav-item">
