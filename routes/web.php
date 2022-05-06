@@ -25,9 +25,7 @@ Route::view('/accueil', 'main/index');
 
 Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'verified'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin-panel/accueil');
-    })->name('dashboard');
+    Route::get('/dashboard',[App\Http\Controllers\AdminController::class,'dashboard'])->name('dashboard');
 
     Route::get('/listeEtudiant',[App\Http\Controllers\AdminController::class,'listeEtudiant']);
 
@@ -50,6 +48,8 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
     Route::get('chercherJury',[App\Http\Controllers\AdminController::class,'chercherJury']);
     Route::get('afficherJury/{id}',[App\Http\Controllers\AdminController::class,'afficherJury']);
     Route::get('/listeSoutenance',[App\Http\Controllers\AdminController::class,'listeSoutenance']);
+
+
 
 });
 

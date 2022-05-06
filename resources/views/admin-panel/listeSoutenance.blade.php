@@ -17,14 +17,21 @@
                                     </div>
                                     @endif
                                 </div>
-                                <div class="col-md-6">
-                                    <a href="#" class="btn btn-success pull-right">Ajouter</a>
-                                </div>
+                                
                                 <nav class="navbar navbar-light bg-light">
  
                             </div>
                     </div>
-                
+                    @if( $soutenances->count() == '0')
+                    <div class="alert alert-warning" role="alert" style="width: 500px; ">
+                        <h4 class="alert-heading" style="text-align: center;"><i class="bi bi-exclamation-circle-fill" style="font-size: xx-large;"></i></h4>
+                        <br>
+                        <p>Aucun étudiant n'a choisi un sujet de son PFE!</p>
+                        <hr>
+                        <p class="mb-0">la liste s'affichera lorsque au moins un étudiant a choisi un sujet de son PFE.</p>
+                    </div>
+                        
+                    @else
                     <div class="panel-body">
                         <table class="table table-striped">
                             <thead>
@@ -71,5 +78,6 @@
             </div>
         </div>
     </div>
+                                @endif
 
 @endsection
