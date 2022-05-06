@@ -16,7 +16,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="ajouterJury" class="btn btn-success pull-right">Ajouter</a>
+                                    <a href="ajouterJury" class="btn btn-success pull-right" style="float:right">Ajouter</a>
                                 </div>
                                 <nav class="navbar navbar-light bg-light">
  
@@ -30,11 +30,11 @@
                                     <th>ID</th>
                                     <th>Nom</th>
                                     <th>Prenom</th>
-                                    <th>Date de naissance</th>
-                                    <th>Ville de naissance</th>
+                                    <th>N°Telephone</th>
+                                    <th>Adresse</th>
                                     
                                     
-                                    <th>Matière</th>
+                                    <th>Ecole</th>
                                    <div class="action">
                                     <th>Action</th>
                                     </div>
@@ -49,13 +49,14 @@
                                         <td>{{$item['nom']}}</td>
                                         
                                         <td>{{$item['prenom']}}</td>
-                                        <td>{{$item['date_naissance']}}</td>
-                                        <td>{{$item['ville_naissance']}}</td>
+                                        <td>{{$item['num_telephone']}}</td>
+                                        <td>{{$item['adresse']}}</td>
                                         
-                                        <td>{{$item['matiere']}}</td>
+                                        <td>{{$item['ecole']}}</td>
                                         
-                                        <td> <a href="supprimerJury/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a></td>
-                                        <td> <a href="afficherModifierJury/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
+                                        <td> <a href="afficherJury/{{$item['id']}}" class="btn btn-warning" style=" background-color:blue; color:white">Afficher</a>
+                                         <a href="supprimerJury/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a>
+                                         <a href="afficherModifierJury/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
                                         
                                     </tr>
                                 @endforeach

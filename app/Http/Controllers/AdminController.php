@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Etudiant;
 use App\Models\Jury;
+use App\Models\User;
 use App\Models\Soutenance;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -25,8 +26,9 @@ class AdminController extends Controller
             "nom" => "required",
             "prenom" => "required",
             "date_naissance" => "required",
-            "ville_naissance" => "required",
-            "filiere"=> "required"
+            "adresse" => "required",
+            "filiere"=> "required",
+            "num_telephone"=> "numeric",
             
             
         ]);
@@ -35,9 +37,15 @@ class AdminController extends Controller
         $etudiant->nom = $req->nom;
         $etudiant->prenom = $req->prenom;
         $etudiant->date_naissance = $req->date_naissance;
-        $etudiant->ville_naissance = $req->ville_naissance;
+        $etudiant->adresse = $req->adresse;
+        $etudiant->num_telephone = $req->num_telephone;
         $etudiant->filiere = $req->filiere;
-        
+        $user = new User();
+        $user->email= $req->email;
+        $user->password = Hash::make($req->password);
+        $user->role = 0;
+        $user->nom= $req->nom_user;
+        $user->save();
         $etudiant->save();
         return redirect('/listeEtudiant');
     }
@@ -55,11 +63,16 @@ class AdminController extends Controller
         $etudiant->nom = $req->input('nom');
         $etudiant->prenom = $req->input('prenom');
         $etudiant->date_naissance = $req->input('date_naissance');
-        $etudiant->ville_naissance = $req->input('ville_naissance');
+        $etudiant->adresse = $req->input('adresse');
+        $etudiant->num_telephone = $req->input('num_telephone');
         $etudiant->filiere = $req->input('filiere');
         $etudiant->update();
         return redirect('/listeEtudiant')->with('status',' Etudiant est bien modifié');
         
+    }
+    function afficherEtudiant($id){
+        $data =Etudiant::find($id);
+        return view('admin-panel/afficherEtudiant',['etudiant'=>$data]);
     }
     function listeJury(){
         $data = Jury::all();
@@ -69,9 +82,9 @@ class AdminController extends Controller
         $req->validate([
             "nom" => "required",
             "prenom" => "required",
-            "date_naissance" => "required",
-            "ville_naissance" => "required",
-            "matiere"=> "required"
+            "num_telephone" => "required",
+            "adresse" => "required",
+            "ecole"=> "required"
             
             
         ]);
@@ -79,9 +92,9 @@ class AdminController extends Controller
         $jury = new Jury();
         $jury->nom = $req->nom;
         $jury->prenom = $req->prenom;
-        $jury->date_naissance = $req->date_naissance;
-        $jury->ville_naissance = $req->ville_naissance;
-        $jury->matiere = $req->matiere;
+        $jury->num_telephone = $req->num_telephone;
+        $jury->adresse = $req->adresse;
+        $jury->ecole = $req->ecole;
         
         $jury->save();
         return redirect('/listeJury');
@@ -100,9 +113,9 @@ class AdminController extends Controller
         $jury = Jury::find($id);
         $jury->nom = $req->input('nom');
         $jury->prenom = $req->input('prenom');
-        $jury->date_naissance = $req->input('date_naissance');
-        $jury->ville_naissance = $req->input('ville_naissance');
-        $jury->matiere= $req->input('matiere');
+        $jury->num_telephone = $req->input('num_telephone');
+        $jury->adresse = $req->input('adresse');
+        $jury->ecole= $req->input('ecole');
         $jury->update();
         return redirect('/listeJury')->with('status',' Le Jury est bien modifié');
         
@@ -111,6 +124,11 @@ class AdminController extends Controller
     {
         $data= Jury::where('nom', 'like', '%'.$req->input('query').'%')->get();
         return view('admin-panel/chercherJury',['juries'=>$data]);
+    }
+
+    function afficherJury($id){
+        $data =Jury::find($id);
+        return view('admin-panel/afficherJury',['jury'=>$data]);
     }
     function listeSoutenance(){
         $data = Soutenance::all();

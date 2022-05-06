@@ -38,6 +38,7 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
     Route::get('supprimerEtudiant/{id}',[App\Http\Controllers\AdminController::class,'supprimerEtudiant']);
     Route::get('afficherModifierEtudiant/{id}',[App\Http\Controllers\AdminController::class,'afficherModifierEtudiant']);
     Route::put('afficherModifierEtudiant/modifierEtudiant/{id}',[App\Http\Controllers\AdminController::class,'modifierEtudiant']);
+    Route::get('afficherEtudiant/{id}',[App\Http\Controllers\AdminController::class,'afficherEtudiant']);
     Route::get('/listeJury',[App\Http\Controllers\AdminController::class,'listeJury']);
     Route::get('ajouterJury',function(){
         return view('admin-panel/ajouterJury');
@@ -47,6 +48,7 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
     Route::get('afficherModifierJury/{id}',[App\Http\Controllers\AdminController::class,'afficherModifierJury']);
     Route::put('afficherModifierJury/modifierJury/{id}',[App\Http\Controllers\AdminController::class,'modifierJury']);
     Route::get('chercherJury',[App\Http\Controllers\AdminController::class,'chercherJury']);
+    Route::get('afficherJury/{id}',[App\Http\Controllers\AdminController::class,'afficherJury']);
     Route::get('/listeSoutenance',[App\Http\Controllers\AdminController::class,'listeSoutenance']);
 
 });

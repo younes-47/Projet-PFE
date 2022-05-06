@@ -42,13 +42,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Ville de naissance</label>
+                                <label class="col-md-4 control-label">Adresse</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Ville de naissance" class="form-control input-md" name="ville_naissance" value="{{$etudiants['ville_naissance']}}"/>
+                                    <input type="text" placeholder="Adresse" class="form-control input-md" name="adresse" value="{{$etudiants['adresse']}}"/>
                                 </div>
                             </div>
 
-                            
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">N°Telephone</label>
+                                <div class="col-md-4">
+                                    <input type="number" placeholder="N°Telephone" class="form-control input-md" name="num_telephone" value="{{$etudiants['num_telephone']}}"/>
+                                </div>
+                            </div>
                         
 
                             <div class="form-group">

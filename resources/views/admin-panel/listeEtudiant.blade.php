@@ -18,7 +18,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="ajouterEtudiant" class="btn btn-success pull-right">Ajouter</a>
+                                    <a href="ajouterEtudiant" class="btn btn-success pull-right" style="float:right">Ajouter</a>
                                 </div>
                                 <nav class="navbar navbar-light bg-light">
  
@@ -33,9 +33,9 @@
                                     <th>Nom</th>
                                     <th>Prenom</th>
                                     <th>Date de naissance</th>
-                                    <th>Ville de naissance</th>
+                                    <th>Adresse</th>
                                     
-                                    
+                                    <th>N° Telephone</th>
                                     <th>Filière</th>
                                    <div class="action">
                                     <th>Action</th>
@@ -52,12 +52,13 @@
                                         
                                         <td>{{$item['prenom']}}</td>
                                         <td>{{$item['date_naissance']}}</td>
-                                        <td>{{$item['ville_naissance']}}</td>
-                                        
+                                        <td>{{$item['adresse']}}</td>
+                                        <td>{{$item['num_telephone']}}</td>
                                         <td>{{$item['filiere']}}</td>
+                                        <td> <a href="afficherEtudiant/{{$item['id']}}" class="btn btn-warning" style=" background-color:blue; color:white">Afficher</a>
+                                        <a href="supprimerEtudiant/{{$item['id']}}" style=" background-color:red; color:white" class="btn btn-warning">Supprimer</a>
                                         
-                                        <td> <a href="supprimerEtudiant/{{$item['id']}}" style=" background-color:red; " class="btn btn-warning">Supprimer</a></td>
-                                        <td> <a href="afficherModifierEtudiant/{{$item['id']}}" class="btn btn-warning">Modifier</a></td>
+                                         <a href="afficherModifierEtudiant/{{$item['id']}}" class="btn btn-warning" style="color:white" >Modifier</a></td>
                                         
                                     </tr>
                                 @endforeach

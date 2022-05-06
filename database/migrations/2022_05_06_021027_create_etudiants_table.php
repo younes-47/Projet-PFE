@@ -18,9 +18,9 @@ class CreateEtudiantsTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->date('date_naissance');
-            $table->string('ville_naissance');
+            $table->string('adresse');
+            $table->string('num_telephone');
             $table->string('filiere');
-            
             $table->timestamps();
         });
     }

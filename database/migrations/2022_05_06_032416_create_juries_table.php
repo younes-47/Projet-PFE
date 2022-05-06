@@ -17,9 +17,11 @@ class CreateJuriesTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->date('date_naissance');
-            $table->string('ville_naissance');
-            $table->string('matiere');
+            
+            $table->string('adresse');
+            
+            $table->string('num_telephone');
+            $table->string('ecole');
             $table->timestamps();
         });
     }

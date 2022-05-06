@@ -16,12 +16,12 @@
                     </div>
                     <div class="panel-body">
                     
-                        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="ajouterEtudiant">
+                        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="ajouterEtudiant" >
                             <div class="form-group">
                             @csrf
                                 <label class="col-md-4 control-label">Nom d'etudiant</label>
-                                <div class="col-md-4">
-                                    <input type="text" placeholder="Nom d'etudiant'" class="form-control input-md" name="nom"/>
+                                <div class="col-md-4" >
+                                    <input type="text" placeholder="Nom d'etudiant" class="form-control input-md" name="nom" />
                                 </div>
                             </div>
 
@@ -40,12 +40,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Ville de naissance</label>
+                                <label class="col-md-4 control-label">Adresse</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Ville de naissance" class="form-control input-md" name="ville_naissance"/>
+                                    <input type="text" placeholder="Adresse" class="form-control input-md" name="adresse"/>
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">N°Telephone</label>
+                                <div class="col-md-4">
+                                    <input type="number" placeholder="N°Telephone" class="form-control input-md" name="num_telephone"/>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Filière</label>
@@ -54,10 +60,26 @@
                                 </div>
                             </div>
 
-                            
-                        
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Email</label>
+                                <div class="col-md-4">
+                                    <input type="email" placeholder="Email" class="form-control input-md" name="email"/>
+                                </div>
+                            </div>
 
-                            
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Mot de passe</label>
+                                <div class="col-md-4">
+                                    <input type="password" placeholder="Mot de passe" class="form-control input-md" name="password"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Nom d'utlisateur</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Nom d'utilisateur" class="form-control input-md" name="nom_user"/>
+                                </div>
+                            </div>
                             
                             <div class="form-group">
                                 <label class="col-md-4 control-label"></label>
