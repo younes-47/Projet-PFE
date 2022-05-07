@@ -32,9 +32,6 @@
 </div>
 
 
-
-
-
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Liste des étudiants</h6>
@@ -48,8 +45,6 @@
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Date de naissance</th>
-                        <th>Adresse</th>
-                        <th>N° Telephone</th>
                         <th>Filière</th>
                         <div class="action">
                             <th>Action</th>
@@ -66,8 +61,6 @@
 
                         <td>{{$item['prenom']}}</td>
                         <td>{{$item['date_naissance']}}</td>
-                        <td>{{$item['adresse']}}</td>
-                        <td>{{$item['num_telephone']}}</td>
                         <td>{{$item['filiere']}}</td>
                         <td> <a href="afficherEtudiant/{{$item['id']}}" class="btn btn-warning" style=" background-color:blue; color:white">Afficher</a>
                             <a href="supprimerEtudiant/{{$item['id']}}" style=" background-color:red; color:white" class="btn btn-warning" onclick="return confirm('Voulez vous supprimez cet étudiant?')">Supprimer</a>
@@ -84,14 +77,14 @@
         </div>
     </div>
 </div>
+<br>
 
+@endsection
 
-
-
-
-
-
-
-
-
+@section('script')
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 @endsection
