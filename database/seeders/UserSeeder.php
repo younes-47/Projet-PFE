@@ -20,7 +20,8 @@ class UserSeeder extends Seeder
             'nom'=>'admin',
             'email'=>'admin@est.com',
             'role' => '2',
-            'password'=>Hash::make('admin123')
+            'password'=>Hash::make('admin123'),
+            'num_etd'=>'A0'
             
         ]);
 
@@ -29,14 +30,16 @@ class UserSeeder extends Seeder
             'nom'=>'etudiant',
             'email'=>'etudiant@est.com',
             'role' => '0',
-            'password'=>Hash::make('etudiant123')
+            'password'=>Hash::make('etudiant123'),
+            'num_etd'=>'A1'
         ]);
 
         DB::table('users')->insert([
             'nom'=>'jury',
             'email'=>'jury@est.com',
             'role' => '1',
-            'password'=>Hash::make('jury123')
+            'password'=>Hash::make('jury123'),
+            'num_etd'=>'A2'
         ]);
     }
 }

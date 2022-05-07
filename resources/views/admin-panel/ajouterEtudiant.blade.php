@@ -80,6 +80,13 @@
                                     <input type="text" placeholder="Nom d'utilisateur" class="form-control input-md" name="nom_user"/>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Numero d'etudiant</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Numero d'etudiant" class="form-control input-md" name="num_etd"/>
+                                </div>
+                            </div>
                             
                             <div class="form-group">
                                 <label class="col-md-4 control-label"></label>
