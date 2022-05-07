@@ -10,7 +10,6 @@
                     <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-6">
-                                   <strong> Liste des Soutenances </strong>
                                     @if (session('status'))
                                     <div class="alert alert-success" role="alert" style=" background-color:lightblue; color:black;">
                                         {{ session('status')}}

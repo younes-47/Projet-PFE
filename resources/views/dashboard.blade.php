@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,71 +35,71 @@
   <link href="{{asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
 
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
-<x-app-layout>
-<div class="wrapper">
+  <x-app-layout>
+    <div class="wrapper">
 
-  
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      
-    </ul>
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user" style="font-size: large;"></i></a>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <!-- <a class="dropdown-item" href="#!">Action</a>
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user" style="font-size: large;"></i></a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <!-- <a class="dropdown-item" href="#!">Action</a>
             <a class="dropdown-item" href="#!">Another action</a> -->
-            <!-- <div class="dropdown-divider"></div> -->
-            <!-- <a class="dropdown-item" href="{{URL::to('/adminlogout')}}">Se déconnecter</a> -->
+              <!-- <div class="dropdown-divider"></div> -->
+              <!-- <a class="dropdown-item" href="{{URL::to('/adminlogout')}}">Se déconnecter</a> -->
 
-            <form method="POST" action="{{ route('logout') }}">
-                    @csrf
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
 
-                    <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                        {{ __('Se déconnecter') }}
-                    </x-jet-responsive-nav-link>
-            </form>
-        </div>
-      </li>
-      
-     
-      <li class="nav-item">
-        
-      </li>
-      <li class="nav-item">
-        
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
+                  {{ __('Se déconnecter') }}
+                </x-jet-responsive-nav-link>
+              </form>
+            </div>
+          </li>
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="dashboard" class="brand-link">
-      <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Administration</span>
-    </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      
+          <li class="nav-item">
 
-      <!-- SidebarSearch Form -->
-      <!-- <div class="form-inline">
+          </li>
+          <li class="nav-item">
+
+          </li>
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard" class="brand-link">
+          <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light">Administration</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user panel (optional) -->
+
+
+          <!-- SidebarSearch Form -->
+          <!-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -108,77 +108,77 @@
             </button>
           </div>
         </div>
-      </div> -->
+        </div> -->
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
+              <li class="nav-item">
                 <a href="/dashboard" class="nav-link">
                   <i class="nav-icon fas fa-chart-pie"></i>
                   <p>Statistiques</p>
                 </a>
               </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <!-- <a href="#" class="nav-link active">
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Tables
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <!-- <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Administration
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a> -->
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/listeEtudiant" class="nav-link ">
-                  <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Etudiants</p>
-                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/listeEtudiant" class="nav-link ">
+                      <i class="far fa-circle nav-icon text-danger"></i>
+                      <p>Etudiants</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/listeJury" class="nav-link ">
+                      <i class="far fa-circle nav-icon text-info"></i>
+                      <p>Membres des Jurys</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/listeSoutenance" class="nav-link">
+                      <i class="far fa-circle nav-icon text-warning"></i>
+                      <p>Soutenances</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a href="/listeJury" class="nav-link ">
-                  <i class="far fa-circle nav-icon text-info"></i>
-                  <p>Membres des Jurys</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/listeSoutenance" class="nav-link">
-                  <i class="far fa-circle nav-icon text-warning"></i>
-                  <p>Soutenances</p>
-                </a>
-              </li>
+
             </ul>
-          </li>
-          
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-          
-            <div class="container">
-            @yield('content')
-            </div>
-          
-
+          </nav>
+          <!-- /.sidebar-menu -->
         </div>
-      
-      
-  
-  <!-- /.content-wrapper -->
-  <!-- <footer class="main-footer">
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+
+        <div class="container">
+          @yield('content')
+        </div>
+
+
+      </div>
+
+
+
+      <!-- /.content-wrapper -->
+      <!-- <footer class="main-footer">
     <strong>Copyright &copy; 2022-2023 <a href="https://est.uit.ac.ma/" target="_blank">EST Kénitra</a>.</strong>
     Tout droits réservés.
     <div class="float-right d-none d-sm-inline-block">
@@ -186,59 +186,59 @@
     </div>
   </footer> -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
-<!-- JQVMap -->
-<script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-<script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-<!-- Summernote -->
-<script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('dist/js/adminlte.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<!--<script src="{{ asset('dist/js/demo.js') }}"></script>-->
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<!--<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>-->
+    <!-- jQuery -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <!-- Sparkline -->
+    <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+    <!-- daterangepicker -->
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <!--<script src="{{ asset('dist/js/demo.js') }}"></script>-->
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <!--<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>-->
 
 
-<script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('js/datatables-demo.js') }}"></script>
-<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/datatables-demo.js') }}"></script>
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
 
-</x-app-layout> 
+  </x-app-layout>
 </body>
 
 </html>
