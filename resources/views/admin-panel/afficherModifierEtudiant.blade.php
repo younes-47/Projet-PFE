@@ -71,13 +71,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Nom d'utilisateur</label>
-                                <div class="col-md-4">
-                                    <input type="text" placeholder="nom_user" class="form-control input-md" name="nom_user" value="{{$etudiants['nom_user']}}"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="col-md-4 control-label">Numero d'etudiant</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Numero d'etudiant" class="form-control input-md" name="nom_user" value="{{$etudiants['num_etudiant']}}"/>

@@ -52,7 +52,8 @@ class AdminController extends Controller
         $user->email= $req->email;
         $user->password = Hash::make($req->password);
         $user->role = 0;
-        $user->nom= $req->nom_user;
+   
+        $user->num_etd = $etudiant->num_etd;
         $user->save();
         $etudiant->save();
         return redirect('/listeEtudiant');

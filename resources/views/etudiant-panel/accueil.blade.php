@@ -11,39 +11,24 @@
 <br>
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-4 mb-4">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">La date de votre soutenance</h6>
-                </div>
-                <div class="card-body">
-                    <p>bala bla bal abala.</p>
-                    <p class="mb-0">sfvsdvzfzefzefzefzefzef.</p>
-                </div>
-            </div>
 
+<form action="/accueil" method="POST">
+     @csrf
+                    
+        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; padding-top:50px; text-align:center;"><strong>Veuillez choisissez votre sujet du projet PFE</strong></h5>
+
+        <div class="form-outline mb-4" style=" padding-left:120px; padding-top:40px; padding-bottom:50px;width:1130px;">
+        <input type="text" id="form2Example17" class="form-control form-control-lg" name="projet" />
+        <p></p>
+                    
+        <button type="submit" class="btn btn-outline-success" >Enregistrer</button>
         </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Votre Encadrant</h6>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Smia o lknia</li>
-                        <li>email</li>
+</form>
 
-                    </ul>
-                    <p class="mb-0">effffffffffffffffffffffffffffffdvzvvezzefzefzefzefzef.</p>
-                </div>
-            </div>
 
-        </div>
-        
-    </div>
-</div>
+
+
+
 
 
 
