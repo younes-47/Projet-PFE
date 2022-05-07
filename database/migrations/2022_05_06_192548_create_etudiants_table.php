@@ -21,7 +21,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('adresse');
             $table->string('num_telephone');
             $table->string('filiere');
-            $table->foreignId('user_id');
+            $table->integer('num_etd');
             $table->timestamps();
         });
     }

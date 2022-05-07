@@ -27,7 +27,7 @@
                         <br>
                         <p>Aucun étudiant n'a choisi un sujet de son PFE!</p>
                         <hr>
-                        <p class="mb-0">la liste s'affichera lorsque au moins un étudiant a choisi un sujet de son PFE.</p>
+                        <p class="mb-0">la liste s'affichera lorsque au moins un étudiant va choisir un sujet de son PFE.</p>
                     </div>
                         
                     @else
