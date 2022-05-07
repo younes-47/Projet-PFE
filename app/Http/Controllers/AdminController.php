@@ -34,8 +34,10 @@ class AdminController extends Controller
             "date_naissance" => "required",
             "adresse" => "required",
             "filiere"=> "required",
-            "num_telephone"=> "numeric",],
-            ['required' => 'veuillez remplir le champ : :attribute.'
+            "num_telephone"=> "numeric",
+            "num_etd"=>"required"
+            
+            
         ]);
 
         $etudiant = new Etudiant();
@@ -45,7 +47,7 @@ class AdminController extends Controller
         $etudiant->adresse = $req->adresse;
         $etudiant->num_telephone = $req->num_telephone;
         $etudiant->filiere = $req->filiere;
-        DB::table('etudiants')->join('users','etudiants.user_id',"=",'users.id');
+        $etudiant->num_etd = $req->num_etd;
         $user = new User();
         $user->email= $req->email;
         $user->password = Hash::make($req->password);
@@ -90,8 +92,9 @@ class AdminController extends Controller
             "prenom" => "required",
             "num_telephone" => "required",
             "adresse" => "required",
-            "ecole"=> "required"],
-            ['required' => 'veuillez remplir le champ : :attribute.'
+            "ecole"=> "required"
+            
+            
         ]);
 
         $jury = new Jury();
