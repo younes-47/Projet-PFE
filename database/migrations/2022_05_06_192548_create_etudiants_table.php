@@ -17,11 +17,11 @@ class CreateEtudiantsTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
+            $table->string('num_etd')->unique();
             $table->date('date_naissance');
             $table->string('adresse');
-            $table->string('num_telephone');
+            $table->string('num_telephone')->unique();
             $table->string('filiere');
-            $table->integer('num_etd');
             $table->timestamps();
         });
     }

@@ -5,8 +5,13 @@
 
 @section('content')
 
-
-<section class="vh-100" style="background-color: #e6faff;">
+<br>
+<div class="container">
+  <div class="alert alert-info">
+      <p><i class="bi bi-info-circle-fill"></i> Veuillez consulter l'administration pour recupérer votre email et mot de passe assignés à vous.</p>
+  </div>
+</div>
+<section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
@@ -26,7 +31,7 @@
 
                   <div class="form-outline mb-4">
                     <input type="email" id="form2Example17" class="form-control form-control-lg" name="email" />
-                    <label class="form-label" for="form2Example17">Votre Numéro identifiante</label>
+                    <label class="form-label" for="form2Example17">Votre Email</label>
                   </div>
 
                   <div class="form-outline mb-4">

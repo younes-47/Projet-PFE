@@ -17,13 +17,18 @@ class CreateSoutenancesTable extends Migration
             $table->id();
             $table->string('nom_etudiant');
             $table->string('prenom_etudiant');
-            $table->integer('num_salle');
+            $table->string('num_etd');
+            $table->string('filiere');
             $table->string('projet');
-            $table->date('date_soutenance');
-            $table->string('jury1');
-            $table->string('jury2');
-            $table->string('jury3');
-            $table->integer('note');
+            $table->integer('num_salle')->nullable();
+            $table->date('date_soutenance')->nullable();
+            $table->string('encadrant')->nullable();
+            $table->string('jury2')->nullable();
+            $table->string('jury3')->nullable();
+            $table->double('note_encadrant')->nullable();
+            $table->double('note2')->nullable();
+            $table->double('note3')->nullable();
+            $table->double('note_finale')->nullable();
             $table->timestamps();
         });
     }

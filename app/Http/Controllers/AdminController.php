@@ -52,7 +52,8 @@ class AdminController extends Controller
         $user->email= $req->email;
         $user->password = Hash::make($req->password);
         $user->role = 0;
-        $user->nom= $req->nom_user;
+   
+        $user->user_id = $etudiant->num_etd;
         $user->save();
         $etudiant->save();
         return redirect('/listeEtudiant');
@@ -74,8 +75,9 @@ class AdminController extends Controller
         $etudiant->adresse = $req->input('adresse');
         $etudiant->num_telephone = $req->input('num_telephone');
         $etudiant->filiere = $req->input('filiere');
+        $etudiant->num_etd = $req->input('num_etd');
         $etudiant->update();
-        return redirect('/listeEtudiant')->with('status',' Etudiant est bien modifié');
+        return redirect('/listeEtudiant')->with('status','Etudiant est bien modifié');
         
     }
     function afficherEtudiant($id){

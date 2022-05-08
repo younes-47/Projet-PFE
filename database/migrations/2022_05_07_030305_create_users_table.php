@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJuriesTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateJuriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('juries', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('num_jury')->unique();
-            $table->string('adresse');
-            $table->string('num_telephone')->unique();
-            $table->string('ecole');
+            $table->integer('role')->default('0');
+            $table->string('email')->unique();
+            $table->string('password')->unique();
+            $table->string('user_id')->unique();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateJuriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('juries');
+        Schema::dropIfExists('users');
     }
 }
