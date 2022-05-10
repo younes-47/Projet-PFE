@@ -35,28 +35,74 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">N°Telephone</label>
+                                <label class="col-md-4 control-label">Grade</label>
                                 <div class="col-md-4">
-                                    <input type="number" placeholder="N°Telephone" class="form-control input-md" name="num_telephone" value="{{$juries['num_telephone']}}"/>
+                                <select class="form-control" aria-label="Default select example" name="grade" id="option-select">
+                                <option selected value="{{$juries['université']}}">{{$juries['grade']}}</option>
+                                     
+                                    <option value="PES">PES</option>
+                                    <option value="PH">PH</option>
+                                    <option value="PA">PA</option>
+                                   
+                                 </select>
+                                </div>
+                             
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label text-gray-800">Spécialité</label>
+                                <div class="col-md-4">
+
+                                    <select class="form-control" aria-label="Default select example" name="specialité" id="option-select">
+                                        <option selected value="{{$juries['université']}}">{{$juries['specialité']}}</option>
+                                        <option value="Informatique">Informatique</option>
+                                    <option value="Informatique Industrielle">Informatique Industrielle</option>
+                                    <option value="Economie">Economie</option>
+                                    <option value="Logistique & Transport">Logistique & Transport</option>
+                                    <option value=">Eléctronique embarquée">Eléctronique embarquée</option>
+                                    <option value="Technologies Agro-Alimentaires">Technologies Agro-Alimentaires</option>
+                                   
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Adresse</label>
+                                <label class="col-md-4 control-label text-gray-800">Université</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Adresse" class="form-control input-md" name="adresse" value="{{$juries['adresse']}}"/>
+
+                                    <select class="form-control" aria-label="Default select example" name="université" id="option-select">
+                                        <option selected value="{{$juries['université']}}">{{$juries['université']}}</option>
+                                        <option value="Université Hassan II - Casablanca">Université Hassan II - Casablanca</option>
+                                    <option value="Université Abdelmalek Essaadi – Tétouan">Université Abdelmalek Essaadi – Tétouan</option>
+                                    <option value="Université Mohammed Premier – Oujda">Université Mohammed Premier – Oujda</option>
+                                    <option value="Université Sultan Moulay Slimane – Beni Mellal">Université Sultan Moulay Slimane – Beni Mellal</option>
+                                    <option value="Université Sidi Mohammed Ben Abdellah – Fès">Université Sidi Mohammed Ben Abdellah – Fès</option>
+                                    <option value="Université Moulay Ismaïl – Meknès">Université Moulay Ismaïl – Meknès</option>
+                                    <option value="Université Ibn Tofail – Kénitra">Université Ibn Tofail – Kénitra</option>
+                                    <option value="Université Cadi Ayyad – Marrakech">Université Cadi Ayyad – Marrakech</option>
+                                    <option value="Université Chouaïb Doukkali – El Jadida">Université Chouaïb Doukkali – El Jadida</option>
+                                    <option value="Université Hassan I – Settat">Université Hassan I – Settat</option>
+                                    <option value="Université Mohammed V – Rabat">Université Mohammed V – Rabat</option>
+                                    <option value="Université Ibn Zohr – Agadir">Université Ibn Zohr – Agadir</option>
+                                    </select>
                                 </div>
                             </div>
-
-                            
                         
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Ecole</label>
+                                <label class="col-md-4 control-label">Etablissement</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Ecole" class="form-control input-md" name="ecole" value="{{$juries['ecole']}}"/>
+                                    <input type="text" placeholder="Etablissement" class="form-control input-md" name="etablissement" value="{{$juries['etablissement']}}"/>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Numero de Jury</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Numero de Jury" class="form-control input-md" name="num_jury" value="{{$juries['num_jury']}}"/>
+                                </div>
+                            </div>
+                            
                             
                             <div class="form-group">
                                 <label class="col-md-4 control-label"></label>

@@ -92,9 +92,10 @@ class AdminController extends Controller
         $req->validate([
             "nom" => "required",
             "prenom" => "required",
-            "num_telephone" => "required",
-            "adresse" => "required",
-            "ecole"=> "required"
+            "specialité" => "required",
+            "grade" => "required",
+            "université"=> "required",
+            "etablissement"=> "required"
             
             
         ]);
@@ -102,9 +103,19 @@ class AdminController extends Controller
         $jury = new Jury();
         $jury->nom = $req->nom;
         $jury->prenom = $req->prenom;
-        $jury->num_telephone = $req->num_telephone;
-        $jury->adresse = $req->adresse;
-        $jury->ecole = $req->ecole;
+        $jury->grade = $req->grade;
+        $jury->specialité = $req->specialité;
+        $jury->université = $req->université;
+        $jury->etablissement = $req->etablissement;
+        $jury->num_jury= $req->num_jury;
+
+        $user = new User();
+        $user->email= $req->email;
+        $user->password = Hash::make($req->password);
+        $user->role = 1;
+   
+        $user->user_id = $jury->num_jury;
+        $user->save();
         
         $jury->save();
         return redirect('/listeJury');
@@ -123,9 +134,12 @@ class AdminController extends Controller
         $jury = Jury::find($id);
         $jury->nom = $req->input('nom');
         $jury->prenom = $req->input('prenom');
-        $jury->num_telephone = $req->input('num_telephone');
-        $jury->adresse = $req->input('adresse');
-        $jury->ecole= $req->input('ecole');
+        $jury->grade = $req->input('grade');
+        $jury->specialité = $req->input('specialité');
+        $jury->université= $req->input('université');
+        $jury->etablissement= $req->input('etablissement');
+        $jury->etablissement= $req->input('etablissement');
+        $jury->num_jury= $req->input('num_jury');
         $jury->update();
         return redirect('/listeJury')->with('status',' Le Jury est bien modifié');
         

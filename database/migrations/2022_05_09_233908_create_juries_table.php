@@ -18,9 +18,10 @@ class CreateJuriesTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('num_jury')->unique();
-            $table->string('adresse');
-            $table->string('num_telephone')->unique();
-            $table->string('ecole');
+            $table->string('grade');
+            $table->string('specialité');
+            $table->string('université');
+            $table->string('etablissement');
             $table->timestamps();
         });
     }

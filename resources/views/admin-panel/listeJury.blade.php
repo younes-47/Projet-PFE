@@ -40,9 +40,10 @@
                                     <th>ID</th>
                                     <th>Nom</th>
                                     <th>Prenom</th>
-                                    <th>N°Telephone</th>
-                                    <th>Adresse</th>
-                                    <th>Ecole</th>
+                                    <th>Grade</th>
+                                    <th>Spécialité</th>
+                                    <th>Université</th>
+                                    <th>Etablissement</th>
                                     <div class="action">
                                         <th>Action</th>
                                     </div>
@@ -56,10 +57,11 @@
                                     <td>{{$item['nom']}}</td>
 
                                     <td>{{$item['prenom']}}</td>
-                                    <td>{{$item['num_telephone']}}</td>
-                                    <td>{{$item['adresse']}}</td>
+                                    <td>{{$item['grade']}}</td>
+                                    <td>{{$item['specialité']}}</td>
+                                    <td>{{$item['université']}}</td>
 
-                                    <td>{{$item['ecole']}}</td>
+                                    <td>{{$item['etablissement']}}</td>
 
                                     <td> <a href="afficherJury/{{$item['id']}}" class="btn btn-warning" style=" background-color:blue; color:white">Afficher</a>
                                         <a href="supprimerJury/{{$item['id']}}" style=" background-color:red; "
