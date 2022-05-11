@@ -169,4 +169,9 @@ class AdminController extends Controller
         $data = Projet::all();
         return view('admin-panel/listeProjet',['projets' => $data ]);
     }
+
+    function refuserProjet($id){
+        Projet::destroy($id);
+        return redirect('/listeProjet');
+    }
 }

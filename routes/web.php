@@ -50,6 +50,10 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
     Route::get('/listeSoutenance',[App\Http\Controllers\AdminController::class,'listeSoutenance']);
     
     Route::get('/listeProjet',[App\Http\Controllers\AdminController::class,'listeProjet']);
+    Route::get('programmerSoutenance',function(){
+        return view('admin-panel/programmerSoutenance');
+    });
+    Route::get('refuserProjet/{id}',[App\Http\Controllers\AdminController::class,'refuserProjet']);
 
 
 });

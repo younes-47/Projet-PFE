@@ -39,7 +39,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nom d'etudiant</th>
+                                    <th>Prenom d'etudiant</th>
                                     <th>Projet</th>
+                                    
                                     
                                     <div class="action">
                                         <th>Action</th>
@@ -52,15 +54,17 @@
                                 <tr>
                                     <td>{{$item['id']}}</td>
                                     <td>{{$item['nom_etudiant']}}</td>
+                                    <td>{{$item['prenom_etudiant']}}</td>
 
                                     
                                     <td>{{$item['nom_projet']}}</td>
+                                    
                                    
 
-                                    <td> <a href="#" class="btn btn-warning" style=" background-color:blue; color:white">Afficher</a>
-                                        <a href="#" style=" background-color:red; "
-                                         class="btn btn-warning" onclick="return confirm('Voulez vous supprimez ce membre de jury?')">Supprimer</a>
-                                        <a href="afficherModifierJury/{{$item['id']}}" class="btn btn-warning">Modifier</a>
+                                    <td> <a href="programmerSoutenance" class="btn btn-warning" style=" background-color:blue; color:white">Programmer</a>
+                                        <a href="refuserProjet/{{$item['id']}}" style=" background-color:red; "
+                                         class="btn btn-warning" onclick="return confirm('Voulez vous refuser ce membre de projet?')">Refuser</a>
+                                        
                                     </td>
 
                                 </tr>

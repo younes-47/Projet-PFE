@@ -20,12 +20,12 @@ class EtudiantController extends Controller
         ->select('etudiants.nom','etudiants.prenom')->get('*');
         
         //requete bach n3rfo etudiant wach deja khtar sujet ola la
-        $khtar = Soutenance::where('num_etd',auth()->user()->user_id)->get('*');
+        $khtar = Projet::where('num_etd',auth()->user()->user_id)->get('*');
 
         //requete bach njbdo ga3 les sujets li tkhtaro mn filliere dyal etudiant bach n2afiwhm
         $filiere = Etudiant::where('num_etd',auth()->user()->user_id)->select('filiere')->first();
         
-        $sujets = DB::table('soutenances')->where('filiere',$filiere)->select('projet')->get('*');
+       $sujets = DB::table('projets')->join('etudiants','etudiants.num_etd','=','projets.num_etd')->where('filiere',$filiere)->select('nom_projet')->get('*');
 
         return view('etudiant-panel.accueil',compact('nom_complet','khtar','sujets'));
     }
@@ -51,9 +51,13 @@ class EtudiantController extends Controller
         $projet = new Projet();
         $nom = Etudiant::where('num_etd', auth()->user()->user_id)->value('nom');
         $prenom = Etudiant::where('num_etd', auth()->user()->user_id)->value('prenom');
+        
         $projet->nom_projet = $req->projet;
         $projet->nom_etudiant = $nom;
         $projet->prenom_etudiant = $prenom;
+        $projet->num_etd = auth()->user()->user_id;
+        
+        
         $projet->save();
         return redirect('/etudiant-panel/accueil');
     }

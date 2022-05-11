@@ -45,7 +45,7 @@
     @if($sujets->count() != 0)
     <ul class="list-group">
         @foreach($sujets as $sujet)
-        <li class="list-group-item list-group-item-secondary">{{$sujet['projet']}}</li>
+        <li class="list-group-item list-group-item-secondary">{{$sujet['nom_projet']}}</li>
         @endforeach
     </ul>
     @else

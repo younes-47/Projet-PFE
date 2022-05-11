@@ -15,9 +15,11 @@ class CreateProjetsTable extends Migration
     {
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
+            $table->string('num_etd');
             $table->string('nom_projet');
             $table->string('nom_etudiant');
             $table->string('prenom_etudiant');
+            
             $table->timestamps();
         });
     }
