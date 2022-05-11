@@ -48,7 +48,8 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
     Route::get('chercherJury',[App\Http\Controllers\AdminController::class,'chercherJury']);
     Route::get('afficherJury/{id}',[App\Http\Controllers\AdminController::class,'afficherJury']);
     Route::get('/listeSoutenance',[App\Http\Controllers\AdminController::class,'listeSoutenance']);
-
+    
+    Route::get('/listeProjet',[App\Http\Controllers\AdminController::class,'listeProjet']);
 
 
 });

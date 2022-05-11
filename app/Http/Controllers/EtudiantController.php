@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Etudiant;
 use Illuminate\Http\Request;
 use App\Models\Soutenance;
+use App\Models\Projet;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +31,7 @@ class EtudiantController extends Controller
     }
 
     function choisirPFE(Request $req){
-        $soutenance = new Soutenance();
+      /*  $soutenance = new Soutenance();
 
         //had requete bach njbdo le nom & prenom dyal etudiant o nstockiwha f table de soutenenaces
         $nom_complet = Etudiant::where('num_etd', auth()->user()->user_id)->select('etudiants.nom','etudiants.prenom')->first();
@@ -39,18 +40,27 @@ class EtudiantController extends Controller
         $filiere = Etudiant::where('num_etd', auth()->user()->user_id)->select('filiere')->first();
 
         //daba 3amar table dyal soutenances bhad les infos
-        $soutenance->nom_etudiant = $nom_complet->nom;
+       $soutenance->nom_etudiant = $nom_complet->nom;
         $soutenance->prenom_etudiant = $nom_complet->prenom;
         $soutenance->num_etd = auth()->user()->user_id;
         $soutenance->filiere = $filiere->filiere;
         $soutenance->projet = $req->projet;
-        $soutenance->save();
+        $soutenance->save();*/
+         
+       
+        $projet = new Projet();
+        $nom = Etudiant::where('num_etd', auth()->user()->user_id)->value('nom');
+        $prenom = Etudiant::where('num_etd', auth()->user()->user_id)->value('prenom');
+        $projet->nom_projet = $req->projet;
+        $projet->nom_etudiant = $nom;
+        $projet->prenom_etudiant = $prenom;
+        $projet->save();
         return redirect('/etudiant-panel/accueil');
     }
 
     function profile(){
 
-        $etudiant = Etudiant::where('num_etd',auth()->user()->user_id)->get('*');
+        $etudiant = Etudiant::where('num_etd',auth()->user()->user_id)->first();
         return view('etudiant-panel.profile',compact('etudiant'));
     }
 }

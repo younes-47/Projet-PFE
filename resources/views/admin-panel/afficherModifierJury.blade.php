@@ -38,7 +38,7 @@
                                 <label class="col-md-4 control-label">Grade</label>
                                 <div class="col-md-4">
                                 <select class="form-control" aria-label="Default select example" name="grade" id="option-select">
-                                <option selected value="{{$juries['université']}}">{{$juries['grade']}}</option>
+                                <option selected value="{{$juries['grade']}}">{{$juries['grade']}}</option>
                                      
                                     <option value="PES">PES</option>
                                     <option value="PH">PH</option>
@@ -54,7 +54,7 @@
                                 <div class="col-md-4">
 
                                     <select class="form-control" aria-label="Default select example" name="specialité" id="option-select">
-                                        <option selected value="{{$juries['université']}}">{{$juries['specialité']}}</option>
+                                        <option selected value="{{$juries['specialité']}}">{{$juries['specialité']}}</option>
                                         <option value="Informatique">Informatique</option>
                                     <option value="Informatique Industrielle">Informatique Industrielle</option>
                                     <option value="Economie">Economie</option>

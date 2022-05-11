@@ -20,10 +20,10 @@
                                 <div class="row">
                                     <div class="col-md-5 col-5">
                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                        <strong class="margin-10px-left text-orange">Ecole:</strong>
+                                        <strong class="margin-10px-left text-orange">Université</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p>{{$jury['ecole']}}</p>
+                                        <p>{{$jury['université']}}</p>
                                     </div>
                                 </div>
 
@@ -34,10 +34,10 @@
                 <div class="row">
                     <div class="col-md-5 col-5">
                         <i class="far fa-file text-lightred"></i>
-                        <strong class="margin-10px-left text-lightred">Profession:</strong>
+                        <strong class="margin-10px-left text-lightred">Etablissement:</strong>
                     </div>
                     <div class="col-md-7 col-7">
-                        <p>Professeur universitaire</p>
+                        <p>{{$jury['etablissement']}}</p>
                     </div>
                 </div>
 
@@ -47,10 +47,10 @@
                 <div class="row">
                     <div class="col-md-5 col-5">
                         <i class="fas fa-map-marker-alt text-green"></i>
-                        <strong class="margin-10px-left text-green">Adresse:</strong>
+                        <strong class="margin-10px-left text-green">Grade:</strong>
                     </div>
                     <div class="col-md-7 col-7">
-                        <p>{{$jury['adresse']}}</p>
+                        <p>{{$jury['grade']}}</p>
                     </div>
                 </div>
 
@@ -60,10 +60,10 @@
                 <div class="row">
                     <div class="col-md-5 col-5">
                         <i class="fas fa-mobile-alt text-purple"></i>
-                        <strong class="margin-10px-left xs-margin-four-left text-purple">N°Telephone:</strong>
+                        <strong class="margin-10px-left xs-margin-four-left text-purple">Specialité:</strong>
                     </div>
                     <div class="col-md-7 col-7">
-                        <p>{{$jury['num_telephone']}}</p>
+                        <p>{{$jury['specialité']}}</p>
                     </div>
                 </div>
 

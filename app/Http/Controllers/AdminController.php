@@ -8,6 +8,7 @@ use App\Models\Etudiant;
 use App\Models\Jury;
 use App\Models\User;
 use App\Models\Soutenance;
+use App\Models\Projet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -138,7 +139,7 @@ class AdminController extends Controller
         $jury->specialité = $req->input('specialité');
         $jury->université= $req->input('université');
         $jury->etablissement= $req->input('etablissement');
-        $jury->etablissement= $req->input('etablissement');
+        
         $jury->num_jury= $req->input('num_jury');
         $jury->update();
         return redirect('/listeJury')->with('status',' Le Jury est bien modifié');
@@ -162,5 +163,10 @@ class AdminController extends Controller
     function logout(){
         Auth::logout();
         return redirect('/accueil');
+    }
+
+    function listeProjet(){
+        $data = Projet::all();
+        return view('admin-panel/listeProjet',['projets' => $data ]);
     }
 }

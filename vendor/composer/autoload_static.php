@@ -609,6 +609,7 @@ class ComposerStaticInitbcc79402c21ded25e864ef1e7b722ca0
         'App\\Http\\Responses\\LoginResponse' => __DIR__ . '/../..' . '/app/Http/Responses/LoginResponse.php',
         'App\\Models\\Etudiant' => __DIR__ . '/../..' . '/app/Models/Etudiant.php',
         'App\\Models\\Jury' => __DIR__ . '/../..' . '/app/Models/Jury.php',
+        'App\\Models\\Projet' => __DIR__ . '/../..' . '/app/Models/Projet.php',
         'App\\Models\\Soutenance' => __DIR__ . '/../..' . '/app/Models/Soutenance.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\login' => __DIR__ . '/../..' . '/app/Models/login.php',

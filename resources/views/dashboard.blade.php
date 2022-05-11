@@ -152,9 +152,17 @@
                       <p>Membres des Jurys</p>
                     </a>
                   </li>
+
+                  <li class="nav-item">
+                    <a href="/listeProjet" class="nav-link">
+                      <i class="far fa-circle nav-icon text-warning"></i>
+                      <p>Liste des projets</p>
+                    </a>
+                  </li>
+
                   <li class="nav-item">
                     <a href="/listeSoutenance" class="nav-link">
-                      <i class="far fa-circle nav-icon text-warning"></i>
+                      <i class="far fa-circle nav-icon text-warning" ></i>
                       <p>Soutenances</p>
                     </a>
                   </li>
