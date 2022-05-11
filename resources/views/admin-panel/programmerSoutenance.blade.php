@@ -10,7 +10,7 @@
 
 
 
-<form method="POST" action="#" class="form-horizontal" enctype="multipart/form-data">
+<form method="POST" action="programmerSoutenance/{{$projets->id}}" class="form-horizontal" enctype="multipart/form-data">
     <div class="row">
 
 

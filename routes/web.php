@@ -50,10 +50,15 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
     Route::get('/listeSoutenance',[App\Http\Controllers\AdminController::class,'listeSoutenance']);
     
     Route::get('/listeProjet',[App\Http\Controllers\AdminController::class,'listeProjet']);
-    Route::get('programmerSoutenance',function(){
-        return view('admin-panel/programmerSoutenance');
-    });
+    Route::get('afficherProgrammerSoutenance/{id}',[App\Http\Controllers\AdminController::class,'afficherProgrammerSoutenance']);
+       
+
+    Route::post('afficherProgrammerSoutenance/programmerSoutenance/{id}',[App\Http\Controllers\AdminController::class,'programmerSoutenance']);
     Route::get('refuserProjet/{id}',[App\Http\Controllers\AdminController::class,'refuserProjet']);
+    Route::get('supprimerSoutenance/{id}',[App\Http\Controllers\AdminController::class,'supprimerSoutenance']);
+    Route::get('afficherModifierSoutenance/{id}',[App\Http\Controllers\AdminController::class,'afficherModifierSoutenance']);
+    Route::put('afficherModifierSoutenance/modifierSoutenance/{id}',[App\Http\Controllers\AdminController::class,'modifierSoutenance']);
+    Route::get('afficherSoutenance/{id}',[App\Http\Controllers\AdminController::class,'afficherSoutenance']);
 
 
 });

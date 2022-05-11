@@ -170,8 +170,55 @@ class AdminController extends Controller
         return view('admin-panel/listeProjet',['projets' => $data ]);
     }
 
+
+    function afficherProgrammerSoutenance($id){
+        $projets = Projet::FindOrFail($id);
+        return view('admin-panel/programmerSoutenance')->with('projets', $projets);
+    }
+    function programmerSoutenance(Request $req,$id){
+        $projet = Projet::find($id)->value('nom_projet');
+        $soutenance = new Soutenance();
+        $soutenance->nom_etudiant = $req->nom;
+        $soutenance->prenom_etudiant = $req->prenom;
+        $soutenance->num_salle = $req->num_salle;
+        $soutenance->date_soutenance = $req->date_soutenance;
+        $soutenance->jury = $req->jury;
+        $soutenance->nom_projet = $projet;
+
+        $soutenance->save();
+        return redirect('/listeSoutenance')->with('status',' Soutenance est bien programmé');
+
+    }
+
     function refuserProjet($id){
         Projet::destroy($id);
         return redirect('/listeProjet');
+    }
+
+    function supprimerSoutenance($id){
+        Soutenance::destroy($id);
+        return redirect('/listeSoutenance');
+    }
+
+    function afficherModifierSoutenance($id){
+        $soutenances= Soutenance::findOrFail($id);
+        return view('admin-panel/afficherModifierSoutenance')->with('soutenances', $soutenances);
+    }
+
+    function modifierSoutenance($id, Request $req){
+        $soutenance = Soutenance::find($id);
+        
+        $soutenance->num_salle = $req->input('num_salle');
+        $soutenance->date_soutenance = $req->input('date_soutenance');
+        $soutenance->jury= $req->input('jury');
+        
+        $soutenance->update();
+        return redirect('/listeSoutenance')->with('status',' La soutenance est bien modifié');
+        
+    }
+    
+    function afficherSoutenance($id){
+        $data = Soutenance::find($id);
+        return view('admin-panel/afficherSoutenance',['soutenance' => $data]);
     }
 }

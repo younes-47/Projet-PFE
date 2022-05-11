@@ -61,7 +61,7 @@
                                     
                                    
 
-                                    <td> <a href="programmerSoutenance" class="btn btn-warning" style=" background-color:blue; color:white">Programmer</a>
+                                    <td> <a href="afficherProgrammerSoutenance/{{$item['id']}}" class="btn btn-warning" style=" background-color:blue; color:white">Programmer</a>
                                         <a href="refuserProjet/{{$item['id']}}" style=" background-color:red; "
                                          class="btn btn-warning" onclick="return confirm('Voulez vous refuser ce membre de projet?')">Refuser</a>
                                         
