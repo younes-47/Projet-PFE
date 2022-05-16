@@ -19,7 +19,6 @@ class CreateProjetsTable extends Migration
             $table->string('nom_projet');
             $table->string('nom_etudiant');
             $table->string('prenom_etudiant');
-            
             $table->timestamps();
         });
     }

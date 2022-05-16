@@ -46,7 +46,7 @@
 
                 <div class="row">
                     <div class="col-md-5 col-5">
-                        <i class="fas fa-map-marker-alt text-green"></i>
+                        <!-- <i class="fas fa-map-marker-alt text-green"></i> -->
                         <strong class="margin-10px-left text-green">Grade:</strong>
                     </div>
                     <div class="col-md-7 col-7">
@@ -59,7 +59,7 @@
 
                 <div class="row">
                     <div class="col-md-5 col-5">
-                        <i class="fas fa-mobile-alt text-purple"></i>
+                        <!-- <i class="fas fa-mobile-alt text-purple"></i> -->
                         <strong class="margin-10px-left xs-margin-four-left text-purple">Specialité:</strong>
                     </div>
                     <div class="col-md-7 col-7">

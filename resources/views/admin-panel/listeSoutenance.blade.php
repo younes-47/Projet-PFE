@@ -71,7 +71,7 @@
 
                                     <td> <a href="afficherSoutenance/{{$item['id']}}" class="btn btn-warning" style=" background-color:blue; color:white">Afficher</a>
                                         <a href="supprimerSoutenance/{{$item['id']}}" style=" background-color:red; "
-                                         class="btn btn-warning" onclick="return confirm('Voulez vous refuser ce membre de projet?')">Supprimer</a>
+                                         class="btn btn-warning" onclick="return confirm('Voulez vous supprimer cette soutenance?')">Supprimer</a>
                                          <a href="afficherModifierSoutenance/{{$item['id']}}" class="btn btn-warning">Modifier</a>
                                         
                                     </td>

@@ -19,7 +19,7 @@
 
                                 <div class="row">
                                     <div class="col-md-5 col-5">
-                                        <i class="fas fa-graduation-cap text-orange"></i>
+                                        <i class="fas  text-orange"></i>
                                         <strong class="margin-10px-left text-orange">Date de soutenance:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
@@ -34,10 +34,10 @@
                 <div class="row">
                     <div class="col-md-5 col-5">
                         <i class="far fa-file text-lightred"></i>
-                        <strong class="margin-10px-left text-lightred">Numero de salle:</strong>
+                        <strong class="margin-10px-left text-lightred">Jury:</strong>
                     </div>
                     <div class="col-md-7 col-7">
-                        <p>{{$soutenance['num_salle']}}</p>
+                        <p>{{$soutenance['jury']}}</p>
                     </div>
                 </div>
 
@@ -47,10 +47,10 @@
                 <div class="row">
                     <div class="col-md-5 col-5">
                         <i class="fas fa-map-marker-alt text-green"></i>
-                        <strong class="margin-10px-left text-green">Jury:</strong>
+                        <strong class="margin-10px-left text-green">Salle:</strong>
                     </div>
                     <div class="col-md-7 col-7">
-                        <p>{{$soutenance['jury']}}</p>
+                        <p>{{$soutenance['num_salle']}}</p>
                     </div>
                 </div>
 
