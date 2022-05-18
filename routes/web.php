@@ -71,7 +71,7 @@ Route::middleware(['auth:sanctum','ifJury',config('jetstream.auth_session'),'ver
 });
 
 //les routes dyal etudiant
-Route::middleware(['auth:sanctum','ifEtudiant',config('jetstream.auth_session'),'verified'])->group(function () {
+Route::middleware(['auth:sanctum','auth','ifEtudiant',config('jetstream.auth_session'),'verified'])->group(function () {
 
     Route::get('/etudiant-panel/accueil',[App\Http\Controllers\EtudiantController::class,'accueil']);
     Route::post('/choix',[App\Http\Controllers\EtudiantController::class,'choisirPFE']);

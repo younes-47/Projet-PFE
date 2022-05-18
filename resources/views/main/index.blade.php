@@ -19,6 +19,44 @@
             </div>
         </header>
 
+@php
+    $soutenances = \App\Models\Soutenance::all();
+@endphp
+
+        <section class="bg-light">
+            <br><br>
+            <div class="container">
+                <div class="row">
+                    <div class="text-center mb-5 mb-lg-0 mb-lg-3">
+                    <h3>Tableau des soutenances des étudiants</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered myTable" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Nom Complet</th>
+                                    <th>Filière</th>
+                                    <th>La date de soutenance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($soutenances as $soutenance)
+                                @php
+                                   $filiere =  \App\Models\Etudiant::where('num_etd', $soutenance->num_etd)->value('filiere');
+                                @endphp
+                                <tr>
+                                    <td>{{$soutenance->nom_etudiant}} {{$soutenance->prenom_etudiant}}</td>
+                                    <td>{{$filiere}}</td>
+                                    <td>{{$soutenance->date_soutenance}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 <!-- Icons Grid-->
         <section class="features-icons bg-light text-center">
             <div class="container">
@@ -33,23 +71,23 @@
                     <div class="col-lg-4">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-card-checklist m-auto text-primary"></i></div>
-                            <h3>Accès aux sujets et soutenances</h3>
-                            <p class="lead mb-0">Vous pouvez voir les sujets proposés et autres details de votre soutenance!</p>
+                            <h3>Choisir votre sujet</h3>
+                            <p class="lead mb-0">Vous pouvez voir les sujets choisis par autre étudiants de votre filière, puis décider de choisir un sujet convenable</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-calendar-date m-auto text-primary"></i></div>
                             <h3>Les dates de soutenances</h3>
-                            <p class="lead mb-0">Voir la date exacte de votre soutenance à l'avance!</p>
+                            <p class="lead mb-0">Voir la date exacte de votre soutenance à l'avance! ainsi qu'autre details à propos votre soutenance</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-<!-- Image Showcases-->
-        <section class="showcase">
+<!-- les images -->
+        {{-- <section class="showcase">
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{ asset('img/students.jpg') }}')"></div>
@@ -73,10 +111,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         
-<!-- Testimonials-->
-        <section class="testimonials text-center bg-light">
+<!-- créateurs-->
+        {{-- <section class="testimonials text-center bg-light">
             <div class="container">
                 <h2 class="mb-5">Les Créateurs...</h2>
                 <div class="row">
@@ -102,7 +140,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </section>
 
 

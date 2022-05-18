@@ -9,6 +9,8 @@ use App\Models\Jury;
 use App\Models\User;
 use App\Models\Soutenance;
 use App\Models\Projet;
+use App\Models\Relations;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -166,32 +168,47 @@ class AdminController extends Controller
     }
 
     function listeProjet(){
-        $data = Projet::all();
+        $data = Projet::all()->where('etat','=',null);
         return view('admin-panel/listeProjet',['projets' => $data ]);
     }
 
 
     function afficherProgrammerSoutenance($id){
         $projets = Projet::FindOrFail($id);
-        return view('admin-panel/programmerSoutenance')->with('projets', $projets);
+        $juries = Jury::all();
+        return view('admin-panel/programmerSoutenance',compact('juries'))->with('projets', $projets);
     }
     function programmerSoutenance(Request $req,$id){
         $projet = Projet::find($id)->value('nom_projet');
         $soutenance = new Soutenance();
+        $soutenance->num_etd = Projet::find($id)->value('num_etd');
         $soutenance->nom_etudiant = $req->nom;
         $soutenance->prenom_etudiant = $req->prenom;
         $soutenance->num_salle = $req->num_salle;
         $soutenance->date_soutenance = $req->date_soutenance;
-        $soutenance->jury = $req->jury;
+        $soutenance->encadrant = $req->encadrant;
         $soutenance->nom_projet = $projet;
-
         $soutenance->save();
+
+        $encadrant = new Relations();
+        $encadrant->num_jury = $req->encadrant;
+        $encadrant->id_soutenance = Soutenance::where('nom_projet',$projet)->value('id');
+        $encadrant->save();
+
+        foreach($req->membre_jury as $key=> $jury){
+            $jurys = new Relations();
+            $jurys->num_jury = $jury;
+            $jurys->id_soutenance = Soutenance::where('nom_projet',$projet)->value('id');
+            $jurys->save();
+        }
+
+        Projet::find($id)->update(['etat'=>'oui']);
         return redirect('/listeSoutenance')->with('status',' Soutenance est bien programmé');
 
     }
 
     function refuserProjet($id){
-        Projet::destroy($id);
+        Projet::find($id)->update(['etat'=>'non']);
         return redirect('/listeProjet');
     }
 
@@ -218,7 +235,7 @@ class AdminController extends Controller
     }
     
     function afficherSoutenance($id){
-        $data = Soutenance::find($id);
+        $data = Soutenance::find($id); 
         return view('admin-panel/afficherSoutenance',['soutenance' => $data]);
     }
 }

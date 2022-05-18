@@ -19,6 +19,8 @@ class CreateProjetsTable extends Migration
             $table->string('nom_projet');
             $table->string('nom_etudiant');
             $table->string('prenom_etudiant');
+            $table->string('filiere_etudiant');
+            $table->string('etat')->nullable(); // null = ba9i admin madar walo, non = refusé, oui = accepté
             $table->timestamps();
         });
     }

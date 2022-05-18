@@ -10,15 +10,13 @@ class Soutenance extends Model
     use HasFactory;
 
     protected $fillable = [
+        'num_etd',
         'nom_etudiant',
         'prenom_etudiant',
+        'nom_projet',
         'num_salle',
-        'filiere',
-        'projet',
         'date_soutenance',
         'encadrant',
-        'jury2',
-        'jury3',
-        'note',
+        'note_finale',
     ];
 }

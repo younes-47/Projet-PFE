@@ -22,8 +22,6 @@
                         <div class="col-md-6">
                             <a href="ajouterEtudiant" class="btn btn-success pull-right" style="float:right;">Ajouter</a>
                         </div>
-                        <nav class="navbar navbar-light bg-light">
-
                     </div>
                 </div>
             </div>
@@ -34,11 +32,11 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Liste des étudiants</h6>
+        <h6 class="m-0 font-weight-bold text-primary text-center" style="font-size: x-large">Liste des étudiants</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered myTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -83,8 +81,17 @@
 
 @section('script')
 <script>
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
+//     $(document).ready(function() {
+//     $('#example').DataTable();
+// } );
+
+
+$(document).ready(function() {
+                $('.myTable').DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+                    }
+                });
+            });
 </script>
 @endsection

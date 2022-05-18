@@ -10,11 +10,12 @@ class Projet extends Model
     use HasFactory;
     protected $fillable = [
             
-        
+        'num_etd',
         'nom_projet',
         'nom_etudiant',
-        'prenom_etudiant'
-       
+        'prenom_etudiant',
+        'filiere_etudiant',
+        'etat',
     
         ];
 }

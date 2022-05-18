@@ -11,6 +11,12 @@
       <p><i class="bi bi-info-circle-fill"></i> Veuillez consulter l'administration pour recupérer votre email et mot de passe assignés à vous.</p>
   </div>
 </div>
+
+@if ($message = Session::get('error'))
+<div class="alert alert-danger alert-block">
+  <p class="alert alert-danger"><strong>{{ $message }}</strong></p>
+</div>
+  @endif
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -26,6 +32,7 @@
 
                 <form action="/login" method="POST">
                 @csrf
+             
                     
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez-vous!</h5>
 

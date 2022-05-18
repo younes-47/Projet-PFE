@@ -14,7 +14,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <!-- <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}"> -->
+  {{-- <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}"> --}}
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- JQVMap -->
@@ -33,10 +33,11 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
   <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet" />
+
   <link href="{{asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
 
-  
-
+  <link rel="stylesheet" href="//cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -92,7 +93,7 @@
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="dashboard" class="brand-link">
-          <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <img src="{{ asset('img/uit-192x192.png') }}" class="brand-image">
           <span class="brand-text font-weight-light">Administration</span>
         </a>
 
@@ -189,13 +190,13 @@
 
 
       <!-- /.content-wrapper -->
-      <!-- <footer class="main-footer">
-    <strong>Copyright &copy; 2022-2023 <a href="https://est.uit.ac.ma/" target="_blank">EST Kénitra</a>.</strong>
+      <footer class="main-footer bg-light text-center">
+    Copyright &copy; 2022-2023 <a href="https://est.uit.ac.ma/" target="_blank">EST Kénitra</a>.
     Tout droits réservés.
-    <div class="float-right d-none d-sm-inline-block">
+    {{-- <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0-rc
-    </div>
-  </footer> -->
+    </div> --}}
+  </footer>
 
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">
@@ -241,9 +242,10 @@
     <!--<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>-->
 
 
+    
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/datatables-demo.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>

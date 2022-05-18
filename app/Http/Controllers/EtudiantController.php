@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use App\Models\Etudiant;
+use App\Models\Jury;
 use Illuminate\Http\Request;
 use App\Models\Soutenance;
 use App\Models\Projet;
@@ -12,26 +14,41 @@ use Illuminate\Support\Facades\DB;
 
 class EtudiantController extends Controller
 {
-    
-    function accueil(){
+
+    function accueil()
+    {
 
         //requete bach tjbed smia
-        $nom_complet = User::where('role', '0')->join('etudiants','users.user_id','=','etudiants.num_etd')->where('etudiants.num_etd','=',auth()->user()->user_id)
-        ->select('etudiants.nom','etudiants.prenom')->get('*');
-        
+        $nom_complet = User::where('role', '0')->join('etudiants', 'users.user_id', '=', 'etudiants.num_etd')->where('etudiants.num_etd', '=', auth()->user()->user_id)
+            ->select('etudiants.nom', 'etudiants.prenom')->get('*');
+
         //requete bach n3rfo etudiant wach deja khtar sujet ola la
-        $khtar = Projet::where('num_etd',auth()->user()->user_id)->get('*');
+        $khtar = Projet::orderby('updated_at', 'DESC')->where('num_etd', auth()->user()->user_id)->first();
 
-        //requete bach njbdo ga3 les sujets li tkhtaro mn filliere dyal etudiant bach n2afiwhm
-         $filiere = Etudiant::where('num_etd',auth()->user()->user_id)->select('filiere')->first();
+        //les sujets li deja tkhtarohom fel filliere
+        $all_info = Etudiant::where('num_etd', auth()->user()->user_id)->first();
+        $filiere = $all_info->filiere;
         
-       $sujets = DB::table('projets')->join('etudiants','etudiants.num_etd','=','projets.num_etd')->where('filiere',$filiere)->select('nom_projet')->get('*');
+        $sujets = Projet::where('filiere_etudiant',$filiere)->where('etat','oui')->get('*');
 
-        return view('etudiant-panel.accueil',compact('nom_complet','khtar','sujets'));
+        //les infos ela soutenance dyal etudiant
+        $soutenance = Soutenance::where('num_etd',auth()->user()->user_id)->first();
+        $encadrant =null;
+        if($soutenance != null){
+            $encadrant = Jury::where('num_jury',$soutenance->encadrant)->first();
+        }
+        $email = null;
+        if($encadrant != null){
+            $email = User::select('email')->where('user_id',$encadrant->num_jury)->value('email');
+        }
+
+
+        return view('etudiant-panel.accueil', compact('nom_complet', 'khtar', 'sujets','filiere','soutenance','encadrant','email'));
     }
 
-    function choisirPFE(Request $req){
-      /*  $soutenance = new Soutenance();
+    function choisirPFE(Request $req)
+    {
+        /*  $soutenance = new Soutenance();
 
         //had requete bach njbdo le nom & prenom dyal etudiant o nstockiwha f table de soutenenaces
         $nom_complet = Etudiant::where('num_etd', auth()->user()->user_id)->select('etudiants.nom','etudiants.prenom')->first();
@@ -46,27 +63,27 @@ class EtudiantController extends Controller
         $soutenance->filiere = $filiere->filiere;
         $soutenance->projet = $req->projet;
         $soutenance->save();*/
-         
-       
+
+
         $projet = new Projet();
         $nom = Etudiant::where('num_etd', auth()->user()->user_id)->value('nom');
         $prenom = Etudiant::where('num_etd', auth()->user()->user_id)->value('prenom');
-        
-        
+        $filiere = Etudiant::where('num_etd', auth()->user()->user_id)->value('filiere');
+
         $projet->nom_projet = $req->projet;
         $projet->nom_etudiant = $nom;
         $projet->prenom_etudiant = $prenom;
         $projet->num_etd = auth()->user()->user_id;
-   
-        
-        
+        $projet->filiere_etudiant = $filiere;
+
         $projet->save();
         return redirect('/etudiant-panel/accueil');
     }
 
-    function profile(){
+    function profile()
+    {
 
-        $etudiant = Etudiant::where('num_etd',auth()->user()->user_id)->get('*');
-        return view('etudiant-panel.profile',compact('etudiant'));
+        $etudiant = Etudiant::where('num_etd', auth()->user()->user_id)->get('*');
+        return view('etudiant-panel.profile', compact('etudiant'));
     }
 }
