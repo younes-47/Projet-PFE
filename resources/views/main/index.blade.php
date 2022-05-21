@@ -47,7 +47,7 @@
                                 <tr>
                                     <td>{{$soutenance->nom_etudiant}} {{$soutenance->prenom_etudiant}}</td>
                                     <td>{{$filiere}}</td>
-                                    <td>{{$soutenance->date_soutenance}}</td>
+                                    <td>{{ \Carbon\Carbon::parse($soutenance->date_soutenance)->format('d-m-Y') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

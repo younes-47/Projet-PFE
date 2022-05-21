@@ -219,17 +219,67 @@ class AdminController extends Controller
 
     function afficherModifierSoutenance($id){
         $soutenances= Soutenance::findOrFail($id);
-        return view('admin-panel/afficherModifierSoutenance')->with('soutenances', $soutenances);
+        $juries = Jury::all();
+        $encadrant = Jury::where('num_jury',$soutenances->encadrant)->get('*')->first();
+        $membres = Relations::where('id_soutenance',$id)->get('*');
+        return view('admin-panel/afficherModifierSoutenance',compact('juries','encadrant','membres'))->with('soutenances', $soutenances);
     }
 
     function modifierSoutenance($id, Request $req){
+
+
+
         $soutenance = Soutenance::find($id);
-        
         $soutenance->num_salle = $req->input('num_salle');
         $soutenance->date_soutenance = $req->input('date_soutenance');
-        $soutenance->jury= $req->input('jury');
-        
+
+        //hila kan encadrant jdid mkynch deja m3a les membres de jury tatsuprrimi encadrant l9dim mn jury
+        // o tat2ajouti jdid f table relations
+
+        if(Relations::where('num_jury',$req->input('encadrant'))->where('id_soutenance',$id)->get('*')->count() == 0){
+            
+            Relations::where('num_jury',$soutenance->encadrant)->where('id_soutenance',$id)->get('*')->first()->delete();
+
+            $relation = new Relations();
+            $relation->num_jury = $req->input('encadrant');
+            $relation->id_soutenance = $id;
+            $relation->save();
+
+            $soutenance->encadrant= $req->input('encadrant');
+        }
+        else{ //hila kan deja sf gha tatchangi
+            $soutenance->encadrant= $req->input('encadrant');
+        }
+
         $soutenance->update();
+
+
+
+        //supprimer les membres de jury li tdar lihm enlever
+        if(!empty($req->old_membre_jury)){
+            foreach($req->old_membre_jury as $key => $old_membre_jury){
+                $old = Relations::where('num_jury',$old_membre_jury)->where('id_soutenance',$id)->get()->first();
+                $old->delete();
+            }
+        }
+
+        //ajouter les membres de jury li tzado
+        if(!empty($req->new_membre_jury)){
+            foreach($req->new_membre_jury as $key => $new_membre_jury){
+                $test = Relations::where('num_jury',$new_membre_jury)->where('id_soutenance',$id)->get();
+                //test wach membre de jury deja kayn
+                if($test->count() == 0){
+                    $relation = new Relations();
+                    $relation->num_jury = $new_membre_jury;
+                    $relation->id_soutenance = $id;
+                    $relation->save();
+                }
+                else{
+                   continue;
+                }
+            }
+        }
+
         return redirect('/listeSoutenance')->with('status',' La soutenance est bien modifié');
         
     }

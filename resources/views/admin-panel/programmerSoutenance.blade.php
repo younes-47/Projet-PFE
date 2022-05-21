@@ -138,8 +138,9 @@
         });
 
         $("body").on("click", ".btn-supprimer", function() {
-            confirm('Voulez-vous vraiment supprimer ce membre de jury?');
-            $(this).parents(".duplicate").remove();
+            if(confirm('Voulez-vous vraiment supprimer ce membre de jury?')){
+                $(this).parents(".duplicate").remove();
+            };
         })
     </script>
 
