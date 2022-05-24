@@ -20,7 +20,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total des étudiants</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$etudiants}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> {{$etudiants}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x"></i>
@@ -36,7 +36,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total des profs</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$juries}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $juries}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user-tie fa-2x"></i>
@@ -52,7 +52,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Total des soutenances</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$soutenances}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$soutenances}} </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-graduation-cap fa-2x"></i>
