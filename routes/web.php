@@ -59,6 +59,8 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
     Route::get('afficherModifierSoutenance/{id}',[App\Http\Controllers\AdminController::class,'afficherModifierSoutenance']);
     Route::put('afficherModifierSoutenance/modifierSoutenance/{id}',[App\Http\Controllers\AdminController::class,'modifierSoutenance']);
     Route::get('afficherSoutenance/{id}',[App\Http\Controllers\AdminController::class,'afficherSoutenance']);
+    Route::get('/admin/changer_mot_de_passe',[App\Http\Controllers\AdminController::class,'changer_password_page']);
+    Route::post('/admin/changer_password_action',[App\Http\Controllers\AdminController::class,'changer_password'])->name('changer_password');
 
 
 });

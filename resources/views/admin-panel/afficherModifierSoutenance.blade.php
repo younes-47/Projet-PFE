@@ -105,8 +105,6 @@
             <div class="form-group">
                 <div class="clone" style="display: none;">
                     <div class="duplicate">
-
-
                         <label class="col-md-4 control-label text-gray-800">Membre de Jury</label>
                         <div class="col-md-4">
                             <select class="form-control" aria-label="Default select example" name="new_membre_jury[]">
@@ -119,9 +117,6 @@
                             <button type="button" id="remove" class="btn btn-supprimer"
                                 style="float: right; background-color: red; color: white">supprimer</button>
                         </div>
-
-
-
                     </div>
                 </div>
 
@@ -136,7 +131,6 @@
         </div>
 
 
-
         <div class="form-group">
             <div class="col-md-4">
                 <button type="submit" class="btn btn-outline-success">Modifier</button>
@@ -147,8 +141,7 @@
         </div>
     </form>
 
-    <br><br><br><br>
-
+    <br><br><br>
 
 
     <script>
@@ -165,4 +158,5 @@
             };
         })
     </script>
+
 @endsection

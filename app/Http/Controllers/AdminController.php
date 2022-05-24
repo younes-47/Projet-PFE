@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Soutenance;
 use App\Models\Projet;
 use App\Models\Relations;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -179,9 +180,9 @@ class AdminController extends Controller
         return view('admin-panel/programmerSoutenance',compact('juries'))->with('projets', $projets);
     }
     function programmerSoutenance(Request $req,$id){
-        $projet = Projet::find($id)->value('nom_projet');
+        $projet = Projet::where('id',$id)->get('*')->first()->nom_projet;
         $soutenance = new Soutenance();
-        $soutenance->num_etd = Projet::find($id)->value('num_etd');
+        $soutenance->num_etd = Projet::where('id',$id)->get('*')->first()->num_etd;
         $soutenance->nom_etudiant = $req->nom;
         $soutenance->prenom_etudiant = $req->prenom;
         $soutenance->num_salle = $req->num_salle;
@@ -192,13 +193,13 @@ class AdminController extends Controller
 
         $encadrant = new Relations();
         $encadrant->num_jury = $req->encadrant;
-        $encadrant->id_soutenance = Soutenance::where('nom_projet',$projet)->value('id');
+        $encadrant->id_soutenance = Soutenance::where('nom_projet',$projet)->get('*')->first()->id;
         $encadrant->save();
 
         foreach($req->membre_jury as $key=> $jury){
             $jurys = new Relations();
             $jurys->num_jury = $jury;
-            $jurys->id_soutenance = Soutenance::where('nom_projet',$projet)->value('id');
+            $jurys->id_soutenance = Soutenance::where('nom_projet',$projet)->get('*')->first()->id;
             $jurys->save();
         }
 
@@ -287,5 +288,31 @@ class AdminController extends Controller
     function afficherSoutenance($id){
         $data = Soutenance::find($id); 
         return view('admin-panel/afficherSoutenance',['soutenance' => $data]);
+    }
+
+    function changer_password_page(){
+
+        return view('admin-panel.changer_password');
+    }
+
+    function changer_password(Request $request){
+
+        $_user = auth()->user();
+        if(Hash::check($request->old_pass,$_user->password)){
+            $__user = User::where('role',2)->get('*')->first();
+            $__user->update([
+                'password' => bcrypt($request->new_pass)
+            ]);
+            
+
+            return redirect('/login')->with('success','Le Mot de passe est bien modifié!');
+        }
+        else{
+
+            session()->flash('message', 'Mot de passe incorrect!');
+
+            return redirect()->back();
+        }
+
     }
 }

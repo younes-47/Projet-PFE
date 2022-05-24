@@ -68,19 +68,16 @@
                             aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"
                                 style="font-size: large;"></i></a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <!-- <a class="dropdown-item" href="#!">Action</a>
-            <a class="dropdown-item" href="#!">Another action</a> -->
-                            <!-- <div class="dropdown-divider"></div> -->
-                            <!-- <a class="dropdown-item" href="{{ URL::to('/adminlogout') }}">Se déconnecter</a> -->
-
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                                    {{ __('Se déconnecter') }}
-                                </x-jet-responsive-nav-link>
-                            </form>
+                            <a class="dropdown-item" href="/admin/changer_mot_de_passe">Changer mot de passe</a>
+                            <div class="dropdown-divider"></div>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+    
+                                    <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                        {{ __('Se déconnecter') }}
+                                    </x-jet-responsive-nav-link>
+                                </form>
                         </div>
                     </li>
 

@@ -32,12 +32,10 @@
                     <thead>
                         <tr>
                             <th style="width: 5%">ID</th>
-                            <th style="width: 15%">Nom et Prénom</th>
-                            {{-- <th>Prenom d'etudiant</th> --}}
-                            {{-- <th>Projet</th> --}}
+                            <th style="width: 15%">Etudiant</th>
                             <th style="width: 16%">N° Salle</th>
                             <th style="width: 16%">Date Soutenance</th>
-                            <th>Jurys</th>
+                            <th>Jury</th>
                             <th style="width: 25.5%">Action</th>
                         </tr>
                     </thead>
@@ -47,7 +45,6 @@
                             <tr>
                                 <td>{{ $item['id'] }}</td>
                                 <td>{{ $item['nom_etudiant'] }} {{ $item['prenom_etudiant'] }}</td>
-                                {{-- <td>{{$item['nom_projet']}}</td> --}}
                                 <td>{{ $item['num_salle'] }}</td>
                                 <td>{{ $item['date_soutenance'] }}</td>
                                 <td>
