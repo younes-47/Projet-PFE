@@ -26,7 +26,7 @@
     </tr>
   </thead>
   <tbody>
-      @foreach ($soutenances as $item)
+      @foreach ($soutenance as $item)
     <tr>
       <td>
         <div class="d-flex align-items-center">
@@ -51,11 +51,13 @@
         {{$item['num_salle']}}
         </td>
     <td>
-        {{$item['note']}}
+      <?php if(empty ($item['note'])){?> <a href=# >Noter La soutenance</a> <?php }?>
+      
 </td>
          
     </tr>
    @endforeach
   </tbody>
 </table>
+
 @endsection

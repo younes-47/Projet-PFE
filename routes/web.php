@@ -69,6 +69,7 @@ Route::middleware(['auth:sanctum','ifAdmin',config('jetstream.auth_session'),'ve
 Route::middleware(['auth:sanctum','ifJury',config('jetstream.auth_session'),'verified'])->group(function () {
 
     Route::get('/jury-panel/accueil',[App\Http\Controllers\JuryController::class,'accueil']);
+    
 
 });
 
