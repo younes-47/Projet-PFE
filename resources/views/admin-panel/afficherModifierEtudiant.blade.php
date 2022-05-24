@@ -11,7 +11,7 @@
 <div class="form-group">
     <label class="col-md-4 control-label text-gray-800">Nom d'etudiant</label>
     <div class="col-md-4">
-        <input type="text" placeholder="Prenom du client" class="form-control input-md" name="prenom" value="{{$etudiants['nom']}}" />
+        <input type="text" placeholder="Prenom du client" class="form-control input-md" name="nom" value="{{$etudiants['nom']}}" />
     </div>
 </div>
 

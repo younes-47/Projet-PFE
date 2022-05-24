@@ -15,6 +15,37 @@
                     
                     <div class="contact-info-section margin-40px-tb">
                         <ul class="list-style9 no-margin">
+
+                        <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas  text-black"></i>
+                                        <strong class="margin-10px-left text-black">Projet:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{$soutenance['nom_projet']}}</p>
+                                    </div>
+                                </div>
+
+</li>
+
+<li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas  text-pink"></i>
+                                        <strong class="margin-10px-left text-pink">Filière d'étudiant:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        @php
+                                        $etudiant = \App\Models\Etudiant::where('num_etd',$soutenance['num_etd'])->get('*')->first();
+                                        @endphp
+                                        <p>{{$etudiant->filiere}}</p>
+                                    </div>
+                                </div>
+
+</li>
                             <li>
 
                                 <div class="row">
@@ -27,39 +58,65 @@
                                     </div>
                                 </div>
 
+</li>
                                 <li>
+
+                    <div class="row">
+                        <div class="col-md-5 col-5">
+                            <i class="fas fa-map-marker-alt text-green"></i>
+                            <strong class="margin-10px-left text-green">Salle:</strong>
+                        </div>
+                        <div class="col-md-7 col-7">
+                            <p>{{$soutenance['num_salle']}}</p>
+                        </div>
+                    </div>
+
+                    </li>
 
                         
 
                 <div class="row">
                     <div class="col-md-5 col-5">
-                        <i class="far fa-file text-lightred"></i>
-                        <strong class="margin-10px-left text-lightred">Jury:</strong>
+                   
+                        <strong class="margin-10px-left text-red">Jury:</strong>
                     </div>
                     <div class="col-md-7 col-7">
-                        <p>{{$soutenance['jury']}}</p>
+                    @php
+                         $jurys = \App\Models\Relations::where('id_soutenance', $soutenance['id'])->get('*');
+                    @endphp
+                    @foreach ($jurys as $jury)
+                         @php
+                          $nom_complet = \App\Models\Jury::where('num_jury', $jury->num_jury)->get('*')->first();
+                         @endphp
+                                    {{ $nom_complet->nom }} {{ $nom_complet->prenom }},<br>
+                                    @endforeach
+                        
                     </div>
                 </div>
 
                 </li>
-                <li>
-
-                <div class="row">
-                    <div class="col-md-5 col-5">
-                        <i class="fas fa-map-marker-alt text-green"></i>
-                        <strong class="margin-10px-left text-green">Salle:</strong>
-                    </div>
-                    <div class="col-md-7 col-7">
-                        <p>{{$soutenance['num_salle']}}</p>
-                    </div>
-                </div>
-
-                </li>
+               
                 <li>
 
                 
 
                 </li>
+                <li>
+                <div class="row">
+                        <div class="col-md-5 col-5">
+                            <i class="fas  text-blue"></i>
+                            <strong class="margin-10px-left text-blue">Encadrant:</strong>
+                        </div>
+                        <div class="col-md-7 col-7">
+                            @php 
+                            $encadrant = \App\Models\Jury::where('num_jury',$soutenance['encadrant'])->get('*')->first();
+                            @endphp
+                            <p>{{$encadrant->nom}} {{$encadrant->prenom}}</p>
+                           
+                        </div>
+                    </div>
+
+                    </li>
                 <li>
                 <div class="row">
                     
