@@ -68,6 +68,7 @@
       <div class="modal-body">
         <form method="POST" action="/jury-panel/accueil/noterSoutenance/{{$item->id}}"  enctype="multipart/form-data">
           <div class="form-group">
+          @csrf
             <label for="recipient-name" class="col-form-label">Note:</label>
             <input type="number" class="form-control" id="recipient-name" name="note">
           </div>
@@ -81,7 +82,7 @@
     </div>
   </div>
 </div>
-<?php if($item['note_finale'] != NULL){ $item['note_finale']; } ?>
+ {{$item['note_finale']; }}
 </td>
 
     </tr>
