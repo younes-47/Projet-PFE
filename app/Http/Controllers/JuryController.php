@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Soutenance;
 use App\Models\Relations;
+use App\Models\Jury;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use phpDocumentor\Reflection\DocBlock\Tags\Source;
@@ -20,5 +21,18 @@ class JuryController extends Controller
         $soutenance_id = $jury->id_soutenance;
         $soutenances = Soutenance::where('id',$soutenance_id)->get('*');
         return view('jury-panel.accueil',compact('nom_complet'),['soutenance' => $soutenances]);
+    }
+
+
+    function noterSoutenance($id, Request $req){
+        $soutenance = Soutenance::find($id);
+        $soutenance->note_finale = $req->note;
+        $soutenance->update();
+        return redirect('jury-panel/accueil');
+    }
+    function profileJury()
+    {
+        $jury = Jury::where('num_jury', auth()->user()->user_id)->get('*');
+        return view('jury-panel.profile', compact('jury'));
     }
 }
