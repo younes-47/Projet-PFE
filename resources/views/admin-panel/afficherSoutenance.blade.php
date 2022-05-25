@@ -117,6 +117,26 @@
                     </div>
 
                     </li>
+                    
+                    <li>
+
+<div class="row">
+    <div class="col-md-5 col-5">
+        <i class="fas  text-yellow"></i>
+        <strong class="margin-10px-left text-yellow">Note finale:</strong>
+    </div>
+    <div class="col-md-7 col-7">
+        @php if($soutenance['note_finale'] == NULL)
+           echo " <p> Pas encore noté </p>";
+       if($soutenance['note_finale'] != NULL)
+       
+        echo "<p>{$soutenance['note_finale']}</p>";
+        @endphp
+    </div>
+</div>
+
+</li>
+
                 <li>
                 <div class="row">
                     
