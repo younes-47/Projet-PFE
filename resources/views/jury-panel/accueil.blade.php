@@ -26,7 +26,10 @@
     </tr>
   </thead>
   <tbody>
-      @foreach ($soutenance as $item)
+      @foreach ($jury as $temp)
+      @php
+        $item = \App\Models\Soutenance::where('id',$temp->id_soutenance)->get('*')->first();
+      @endphp
     <tr>
       <td>
         <div class="d-flex align-items-center">
