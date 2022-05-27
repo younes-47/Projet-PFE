@@ -39,9 +39,9 @@
                                     <th>Nom</th>
                                     <th>Prenom</th>
                                     <th>Grade</th>
-                                    <th>Spécialité</th>
+                                    <!-- <th>Spécialité</th> -->
                                     <th>Université</th>
-                                    <th>Etablissement</th>
+                                    <!-- <th>Etablissement</th> -->
                                     <div class="action">
                                         <th>Action</th>
                                     </div>
@@ -56,10 +56,10 @@
 
                                     <td>{{$item['prenom']}}</td>
                                     <td>{{$item['grade']}}</td>
-                                    <td>{{$item['specialité']}}</td>
+                                    <!-- <td>{{$item['specialité']}}</td> -->
                                     <td>{{$item['université']}}</td>
 
-                                    <td>{{$item['etablissement']}}</td>
+                                    <!-- <td>{{$item['etablissement']}}</td> -->
 
                                     <td> <a href="afficherJury/{{$item['id']}}" class="btn btn-warning" style=" background-color:blue; color:white">Afficher</a>
                                         <a href="supprimerJury/{{$item['id']}}" style=" background-color:red; "

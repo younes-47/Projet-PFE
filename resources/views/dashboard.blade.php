@@ -167,7 +167,7 @@
 
                                     <li class="nav-item">
                                         <a href="/listeSoutenance" class="nav-link">
-                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <i class="far fa-circle nav-icon text-green"></i>
                                             <p>Soutenances</p>
                                         </a>
                                     </li>
