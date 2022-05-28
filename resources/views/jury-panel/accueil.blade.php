@@ -54,12 +54,24 @@
         {{$item['num_salle']}}
         </td>
     <td>
-      <?php if($item['note_finale'] == NULL){?>  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color:red">Noter soutenance</button> <?php }?>
+      <?php if($item['note_finale'] == NULL){?>  
+        <form method="POST" action="/jury-panel/accueil/noterSoutenance/{{$item->id}}"  enctype="multipart/form-data">
+          <div class="form-group">
+          @csrf
+            <label for="recipient-name" class="col-form-label">Note:</label>
+            <input type="number" class="form-control" id="recipient-name" name="note">
+          </div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </div>
+        </form>
+         <?php }?>
 
-     
+         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color:red">Noter soutenance</button> -->
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -84,7 +96,7 @@
      
     </div>
   </div>
-</div>
+</div> -->
  {{$item['note_finale']; }}
 </td>
 

@@ -23,7 +23,10 @@ class JuryController extends Controller
         return view('jury-panel.accueil',compact('nom_complet','jury'));  //,['soutenance' => $soutenances]
     }
 
-
+// function afficherNoterSoutenance($id){
+//     $soutenances= Soutenance::find($id);
+//     return view('jury-panel/afficherNoterSoutenance',compact('soutenances'));
+// }
     function noterSoutenance($id, Request $req){
         $soutenance = Soutenance::find($id);
         $soutenance->note_finale = $req->note;
