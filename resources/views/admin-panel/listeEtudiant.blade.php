@@ -1,5 +1,6 @@
 @extends('dashboard')
 
+@section('titre','Etudiants - Liste')
 
 @section('content')
 

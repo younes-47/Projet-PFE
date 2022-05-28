@@ -81,8 +81,8 @@
                         </div>
                         <div class="card-body">
 
-                                <p class="text-center text-gray-900" style="font-size: x-large"><strong>{{ $encadrant->nom }} {{ $encadrant->prenom }}</strong></p>
-                                <p class="text-center text-gray-800 alert alert-info" style="font-size: x-large">Email: <strong>{{ $email }}</strong></p>
+                                <p class="text-center text-gray-900" style="font-size: x-large"><strong>Pr {{ $encadrant->nom }} {{ $encadrant->prenom }}</strong></p>
+                                <p class="text-center text-gray-800 alert alert-info">Email: <strong>{{ $email }}</strong></p>
 
                         </div>
                     </div>
@@ -98,7 +98,11 @@
                             <p class="text-center text-gray-900" style="font-size: xx-large"><strong>{{ \Carbon\Carbon::parse($soutenance->date_soutenance)->format('d/m/Y') }}</strong></p>
                             <p class="text-center text-success text-gray-900" style="font-size: large"><strong>{{$soutenance->num_salle}}</strong></p>
                             <hr>
+                            @if ( \Carbon\Carbon::now() > \Carbon\Carbon::parse($soutenance->date_soutenance))
+                            <p class="mb-0 text-center alert alert-warning">Vous avez déjà passé votre soutenance</p>
+                            @else
                             <p class="mb-0 text-center alert alert-info"><strong>Il vous reste {{ \Carbon\Carbon::parse($soutenance->date_soutenance)->diffInDays(\Carbon\Carbon::now()) }} jours</strong></p>
+                            @endif
                         </div>
                     </div>
 
@@ -114,9 +118,9 @@
                                 <p class="text-center text-gray-800" style="font-size: medium"><strong>{{ $soutenance->nom_projet }}</strong></p>
                                 <hr>
                                 @if($soutenance->note_finale == null)
-                                    <p class="alert alert-danger">Pas encore noté</p>
+                                    <p class="alert alert-danger text-center">Pas encore noté</p>
                                 @else
-                                    <p class="text-center text-gray-800">La note final: <strong>{{ $soutenance->note_finale }}</strong></p>
+                                    <p class="alert alert-success text-center">La note final: <strong>{{ $soutenance->note_finale }}</strong></p>
                                 @endif
 
 
@@ -134,7 +138,7 @@
                     déjà choisi
                     a été refusé par l'administration.</strong></h5>
             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; padding-top:20px; text-align:center;">
-                <strong>Veuillez choisissez un autre sujet de votre PFE</strong>
+                <strong>Veuillez choisir un autre sujet de votre PFE</strong>
             </h5>
         </div>
 
@@ -156,8 +160,8 @@
                 <h5>Voici la liste des sujets déjà choisis par autre étudiants de {{$filiere}}</h5>
                 <br>
             </div>
-
-            @if ($sujets != null)
+            
+            @if ($sujets->count() != 0)
                 <ul class="list-group">
                     @foreach ($sujets as $sujet)
                         <li class="list-group-item list-group-item-secondary">{{ $sujet['nom_projet'] }}</li>
@@ -168,6 +172,7 @@
                     <p><i>(Aucun sujet choisi)</i></p>
                 </div>
             @endif
+
         </div>
     @endif
 

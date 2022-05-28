@@ -73,7 +73,8 @@ Route::middleware(['auth:sanctum','ifJury',config('jetstream.auth_session'),'ver
  
     Route::post('/jury-panel/accueil/noterSoutenance/{id}',[App\Http\Controllers\JuryController::class,'noterSoutenance']);
     Route::get('/profileJury',[App\Http\Controllers\JuryController::class,'profileJury']);
-
+    Route::get('/jury/changer_mot_de_passe',[App\Http\Controllers\JuryController::class,'changer_password_page']);
+    Route::post('/jury/changer_password_action',[App\Http\Controllers\JuryController::class,'changer_password'])->name('changer_password_jury');
 
 
 });
@@ -84,5 +85,7 @@ Route::middleware(['auth:sanctum','auth','ifEtudiant',config('jetstream.auth_ses
     Route::get('/etudiant-panel/accueil',[App\Http\Controllers\EtudiantController::class,'accueil']);
     Route::post('/choix',[App\Http\Controllers\EtudiantController::class,'choisirPFE']);
     Route::get('/profile',[App\Http\Controllers\EtudiantController::class,'profile']);
+    Route::get('/etudiant/changer_mot_de_passe',[App\Http\Controllers\EtudiantController::class,'changer_password_page']);
+    Route::post('/etudiant/changer_password_action',[App\Http\Controllers\EtudiantController::class,'changer_password'])->name('changer_password_etudiant');
 
 });

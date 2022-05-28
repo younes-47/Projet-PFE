@@ -1,5 +1,5 @@
 @extends('dashboard')
-
+@section('titre','Soutenances - Liste')
 @section('content')
     <div class="container" style="padding:30px 0;">
         <div class="row">
@@ -36,7 +36,7 @@
                             <th style="width: 16%">N° Salle</th>
                             <th style="width: 16%">Date Soutenance</th>
                             <th>Jury</th>
-                            <th style="width: 25.5%">Action</th>
+                            <th style="width: 20%">Action</th>
                         </tr>
                     </thead>
 
@@ -65,9 +65,9 @@
 
                                 <td> <a href="afficherSoutenance/{{ $item['id'] }}" class="btn btn-warning"
                                         style=" background-color:blue; color:white">Afficher</a>
-                                    <a href="supprimerSoutenance/{{ $item['id'] }}" style=" background-color:red; "
+                                    {{-- <a href="supprimerSoutenance/{{ $item['id'] }}" style=" background-color:red; "
                                         class="btn btn-warning"
-                                        onclick="return confirm('Voulez vous supprimer cette soutenance?')">Supprimer</a>
+                                        onclick="return confirm('Voulez vous supprimer cette soutenance?')">Supprimer</a> --}}
                                     <a href="afficherModifierSoutenance/{{ $item['id'] }}"
                                         class="btn btn-warning">Modifier</a>
 

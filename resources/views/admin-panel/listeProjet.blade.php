@@ -1,5 +1,5 @@
 @extends('dashboard')
-
+@section('titre','Projets Choisis - Liste')
 @section('content')
 
 

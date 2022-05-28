@@ -9,6 +9,7 @@ use App\Models\Relations;
 use App\Models\Jury;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\Hash;
 use phpDocumentor\Reflection\DocBlock\Tags\Source;
 
 class JuryController extends Controller
@@ -37,5 +38,28 @@ class JuryController extends Controller
     {
         $jury = Jury::where('num_jury', auth()->user()->user_id)->get('*');
         return view('jury-panel.profile', compact('jury'));
+    }
+
+    function changer_password_page(){
+
+        return view('jury-panel.changer_password');
+    }
+
+    function changer_password(Request $request){
+
+        if(Hash::check($request->old_pass,auth()->user()->password)){
+            User::where('role','1')->where('user_id',auth()->user()->user_id)->get('*')->first()->update([
+                'password' => bcrypt($request->new_pass)
+            ]);
+            
+            return redirect('/login')->with('success','Le Mot de passe est bien modifié!');
+        }
+        else{
+
+            session()->flash('message', 'Mot de passe incorrect!');
+
+            return redirect()->back();
+        }
+
     }
 }
