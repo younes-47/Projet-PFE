@@ -62,7 +62,7 @@
             <input type="number" class="form-control" id="recipient-name" name="note">
           </div>
           <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button> -->
         <button type="submit" class="btn btn-primary">Enregistrer</button>
       </div>
         </form>

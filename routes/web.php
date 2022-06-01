@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'main/index');
 Route::view('/accueil', 'main/index');
+Route::get('/index',function(){
+    return view('index');
+});
 
 //authentification b wahd commande smitha livewire
 //les routes dyal admin khasshom ytadoro wst authentication bach hta wahed may9dr ywslhom ila hila kan admin
