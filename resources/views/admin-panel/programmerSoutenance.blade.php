@@ -1,5 +1,6 @@
 @extends('dashboard')
 
+@section('titre','Soutenance - Programmation')
 
 @section('content')
     <br>
@@ -8,6 +9,13 @@
         <h1 class="h3 mb-0 text-gray-900">Programmer une soutenance</h1>
     </div>
 
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if (session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+    </div>
 
 
     <form method="POST" action="programmerSoutenance/{{ $projets->id }}" class="form-horizontal"
@@ -95,27 +103,29 @@
                 <div class="duplicate">
                     <div class="form-group">
 
-                            <label class="col-md-4 control-label text-gray-800">Membre de Jury</label>
-                            <div class="col-md-4">
-                                <select class="form-control" aria-label="Default select example" name="membre_jury[]">
-                                    <option selected disabled>--Choisir Membre de jury--</option>
-                                    @foreach ($juries as $jury)
-                                        <option value="{{ $jury->num_jury }}">{{ $jury->nom }} {{ $jury->prenom }}</option>
-                                    @endforeach
-                                </select>
-                                <button type="button" id="remove" class="btn btn-supprimer"
-                                        style="float: right; background-color: red; color: white">supprimer</button>
-                            </div>
-                        
+                        <label class="col-md-4 control-label text-gray-800">Membre de Jury</label>
+                        <div class="col-md-4">
+                            <select class="form-control" aria-label="Default select example" name="membre_jury[]">
+                                <option selected disabled>--Choisir Membre de jury--</option>
+                                @foreach ($juries as $jury)
+                                    <option value="{{ $jury->num_jury }}">{{ $jury->nom }} {{ $jury->prenom }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <button type="button" id="remove" class="btn btn-supprimer"
+                                style="float: right; background-color: red; color: white">supprimer</button>
+                        </div>
+
                     </div>
-                    
+
                 </div>
             </div>
-            
+
             <div class="container bouton-dyal-ajout" style="float: left;">
-                <button type="button" class="btn btn-ajouter" style="background-color: orange; color: white"><i class="bi bi-plus-circle"></i> ajouter membre
+                <button type="button" class="btn btn-ajouter" style="background-color: orange; color: white"><i
+                        class="bi bi-plus-circle"></i> ajouter membre
                     de jury</button>
-                    <br><br>
+                <br><br>
             </div>
 
             <div class="form-group">
@@ -127,7 +137,7 @@
             <br><br>
         </div>
     </form>
-<br><br><br><br>
+    <br><br><br><br>
 
     <script>
         $(document).ready(function() {
@@ -138,10 +148,9 @@
         });
 
         $("body").on("click", ".btn-supprimer", function() {
-            if(confirm('Voulez-vous vraiment supprimer ce membre de jury?')){
+            if (confirm('Voulez-vous vraiment supprimer ce membre de jury?')) {
                 $(this).parents(".duplicate").remove();
             };
         })
     </script>
-
 @endsection

@@ -180,6 +180,15 @@ class AdminController extends Controller
         return view('admin-panel/programmerSoutenance',compact('juries'))->with('projets', $projets);
     }
     function programmerSoutenance(Request $req,$id){
+
+        //nchofo wach kayn chi soutenance 3ndha nfs date o salle
+        $test = Soutenance::where('date_soutenance',$req->date_soutenance)->where('num_salle',$req->num_salle)
+        ->get('*');
+        if($test->count() != 0){
+            return redirect()->back()->with('error', 'Il se trouve déjà une soutenance avec la même salle et la même date! Essayez de choisir une autre salle ou changer la date.');
+        }
+
+        
         $projet = Projet::where('id',$id)->get('*')->first()->nom_projet;
         $soutenance = new Soutenance();
         $soutenance->num_etd = Projet::where('id',$id)->get('*')->first()->num_etd;
@@ -196,11 +205,13 @@ class AdminController extends Controller
         $encadrant->id_soutenance = Soutenance::where('nom_projet',$projet)->get('*')->first()->id;
         $encadrant->save();
 
-        foreach($req->membre_jury as $key=> $jury){
-            $jurys = new Relations();
-            $jurys->num_jury = $jury;
-            $jurys->id_soutenance = Soutenance::where('nom_projet',$projet)->get('*')->first()->id;
-            $jurys->save();
+        if(!empty($req->membre_jury)){
+            foreach($req->membre_jury as $key=> $jury){
+                $jurys = new Relations();
+                $jurys->num_jury = $jury;
+                $jurys->id_soutenance = Soutenance::where('nom_projet',$projet)->get('*')->first()->id;
+                $jurys->save();
+            }    
         }
 
         Projet::find($id)->update(['etat'=>'oui']);
@@ -214,6 +225,15 @@ class AdminController extends Controller
     }
 
     function supprimerSoutenance($id){
+        $info = Soutenance::find($id);
+        $projets_choisis = Projet::where('num_etd',$info->num_etd)->get('*');
+        foreach($projets_choisis as $projet){
+            $projet->update(['etat'=>'non']);
+        }
+        $relations = Relations::where('id_soutenance',$id)->get('*');
+        foreach($relations as $relation){
+            Relations::destroy($relation->id);
+        }
         Soutenance::destroy($id);
         return redirect('/listeSoutenance');
     }

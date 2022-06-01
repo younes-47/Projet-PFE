@@ -41,15 +41,13 @@
         <dt class="text-gray-800">Etablissement:</dt>
         <dd class="list-group-item" style="border-radius: 1rem;">{{ $juries->etablissement}}</dd>
 
-
-
     </dl>
 
 </div>
 @endforeach
 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
     <br>
-    <a class="btn btn-primary" href="{{URL::to('/etudiant-panel/accueil')}}">Retourner</a>
+    <a class="btn btn-primary" href="{{URL::to('/jury-panel/accueil')}}">Retourner</a>
 </div>
 <br><br>
 

@@ -11,6 +11,7 @@ use App\Models\Projet;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class EtudiantController extends Controller
 {
@@ -41,7 +42,6 @@ class EtudiantController extends Controller
         if($encadrant != null){
             $email = User::select('email')->where('user_id',$encadrant->num_jury)->value('email');
         }
-
 
         return view('etudiant-panel.accueil', compact('nom_complet', 'khtar', 'sujets','filiere','soutenance','encadrant','email'));
     }
@@ -85,5 +85,28 @@ class EtudiantController extends Controller
 
         $etudiant = Etudiant::where('num_etd', auth()->user()->user_id)->get('*');
         return view('etudiant-panel.profile', compact('etudiant'));
+    }
+
+    function changer_password_page(){
+
+        return view('etudiant-panel.changer_password');
+    }
+
+    function changer_password(Request $request){
+
+        if(Hash::check($request->old_pass,auth()->user()->password)){
+            User::where('role','0')->where('user_id',auth()->user()->user_id)->get('*')->first()->update([
+                'password' => bcrypt($request->new_pass)
+            ]);
+            
+            return redirect('/login')->with('success','Le Mot de passe est bien modifié!');
+        }
+        else{
+
+            session()->flash('message', 'Mot de passe incorrect!');
+
+            return redirect()->back();
+        }
+
     }
 }

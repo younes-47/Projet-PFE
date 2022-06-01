@@ -1,5 +1,5 @@
 @extends('dashboard')
-
+@section('titre','Membres des Jury - Liste')
 @section('content')
 <div class="container" style="padding:30px 0;">
     <div class="row">
