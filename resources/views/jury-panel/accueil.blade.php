@@ -51,7 +51,7 @@
                         ?>
                         {{ $filiere_etd->filiere }}
                     </td>
-                    <td>{{ $item['date_soutenance'] }}</td>
+                    <td>{{ $item['date_soutenance'] }} à {{ $item['heure_soutenance'] }}</td>
                     <td>
                         {{ $item['num_salle'] }}
                     </td>
@@ -98,34 +98,6 @@
           </div>
          
         </div>
-<<<<<<< HEAD
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{$item['nom_projet']}}</p>
-        
-      </td>
-      <td>
-      <?php $filiere_etd = App\Models\Etudiant::where('nom',$item['nom_etudiant'])->first();
-?>
-        {{$filiere_etd->filiere}}
-      </td>
-      <td>{{$item['date_soutenance']}}</td>
-      <td>
-        {{$item['num_salle']}}
-        </td>
-    <td>
-      <?php if($item['note_finale'] == NULL){?>  
-        <form method="POST" action="/jury-panel/accueil/noterSoutenance/{{$item->id}}"  enctype="multipart/form-data">
-          <div class="form-group">
-          @csrf
-            <label for="recipient-name" class="col-form-label">Note:</label>
-            <input type="number" class="form-control" id="recipient-name" name="note">
-          </div>
-          <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button> -->
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-=======
->>>>>>> 720a9d5db0762ee71eb974ae08624ebec5d904ef
       </div>
     </div> -->
                         {{ $item['note_finale'] }}

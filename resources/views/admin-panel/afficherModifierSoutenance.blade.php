@@ -7,6 +7,14 @@
         <h1 class="h3 mb-0 text-gray-900">Modifier Soutenance</h1>
     </div>
 
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if (session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+    </div>
+
 
     <form class="form-horizontal" enctype="multipart/form-data" method="POST"
         action="modifierSoutenance/{{ $soutenances->id }}">
@@ -44,6 +52,14 @@
                 <div class="col-md-4">
                     <input type="date" placeholder="Date de soutenance" class="form-control input-md" name="date_soutenance"
                         value="{{ $soutenances['date_soutenance'] }}" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label text-gray-800">L'heure de la Soutenance</label>
+                <div class="col-md-4">
+                    <input type="time" placeholder="Heure de soutenance" class="form-control input-md" name="heure_soutenance"
+                        value="{{ $soutenances['heure_soutenance'] }}" />
                 </div>
             </div>
 

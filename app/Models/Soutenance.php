@@ -16,6 +16,7 @@ class Soutenance extends Model
         'nom_projet',
         'num_salle',
         'date_soutenance',
+        'heure_soutenance',
         'encadrant',
         'note_finale',
     ];

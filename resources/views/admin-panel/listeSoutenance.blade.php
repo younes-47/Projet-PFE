@@ -34,8 +34,8 @@
                             <th style="width: 5%">ID</th>
                             <th style="width: 15%">Etudiant</th>
                             <th style="width: 16%">N° Salle</th>
-                            <th style="width: 16%">Date Soutenance</th>
-                            <th>Jury</th>
+                            <th style="width: 18%">Date Soutenance</th>
+                            <th style="width: 18%">Jury</th>
                             <th style="width: 20%">Action</th>
                         </tr>
                     </thead>
@@ -46,7 +46,7 @@
                                 <td>{{ $item['id'] }}</td>
                                 <td>{{ $item['nom_etudiant'] }} {{ $item['prenom_etudiant'] }}</td>
                                 <td>{{ $item['num_salle'] }}</td>
-                                <td>{{ $item['date_soutenance'] }}</td>
+                                <td>{{ $item['date_soutenance'] }} à {{ $item['heure_soutenance'] }}</td>
                                 <td>
                                     @php
                                         $jurys = \App\Models\Relations::where('id_soutenance', $item['id'])->get('*');

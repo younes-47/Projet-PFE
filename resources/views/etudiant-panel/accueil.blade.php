@@ -95,7 +95,7 @@
                             <h6 class="m-0 font-weight-bold text-primary text-center">Date & Lieu de votre soutenance</h6>
                         </div>
                         <div class="card-body">
-                            <p class="text-center text-gray-900" style="font-size: xx-large"><strong>{{ \Carbon\Carbon::parse($soutenance->date_soutenance)->format('d/m/Y') }}</strong></p>
+                            <p class="text-center text-gray-900" style="font-size: xx-large"><strong>{{ \Carbon\Carbon::parse($soutenance->date_soutenance)->format('d/m/Y') }} à {{$soutenance->heure_soutenance}}</strong></p>
                             <p class="text-center text-success text-gray-900" style="font-size: large"><strong>{{$soutenance->num_salle}}</strong></p>
                             <hr>
                             @if ( \Carbon\Carbon::now() > \Carbon\Carbon::parse($soutenance->date_soutenance))

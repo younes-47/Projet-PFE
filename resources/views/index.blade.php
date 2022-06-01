@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     
     
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/custom.css">
-
-    <!--[if lt IE 9]>
-      <script src="js/vendor/html5shiv.min.js"></script>
-      <script src="js/vendor/respond.min.js"></script>
-    <![endif]-->
+    <link href="{{ asset('css/styles-merged.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
   </head>
   <body>
 
@@ -62,6 +57,8 @@
           </li>
         </ul>
       </section>
+
+      
       
       <section class="probootstrap-section probootstrap-section-colored">
         <div class="container">
@@ -258,10 +255,8 @@
     </div>
     <!-- END wrapper -->
     
-
-    <script src="js/scripts.min.js"></script>
-    <script src="js/main.min.js"></script>
-    <script src="js/custom.js"></script>
-
+    <script src="{{ asset('js/scripts.min.js') }}"></script>
+    <script src="{{ asset('js/main.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
   </body>
 </html>

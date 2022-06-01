@@ -7,7 +7,6 @@
 <div class="container">
     <div class="team-single">
         <div class="row">
-            
 
             <div class="col-lg-8 col-md-7">
                 <div class="team-single-text padding-50px-left sm-no-padding-left">

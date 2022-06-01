@@ -6,7 +6,7 @@
     <br>
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-900">Programmer une soutenance</h1>
+        <h1 class="h3 mb-0 text-gray-900">Programmer la soutenance</h1>
     </div>
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -58,6 +58,14 @@
                 <div class="col-md-4">
                     <input type="date" placeholder="Date de soutenance" class="form-control input-md"
                         name="date_soutenance" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label text-gray-800">L'heure</label>
+                <div class="col-md-4">
+                    <input type="time" placeholder="Heure de soutenance" class="form-control input-md"
+                        name="heure_soutenance" />
                 </div>
             </div>
 

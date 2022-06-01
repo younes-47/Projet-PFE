@@ -19,6 +19,7 @@
             </div>
         </header>
 
+        
 @php
     $soutenances = \App\Models\Soutenance::all();
 @endphp
@@ -47,7 +48,7 @@
                                 <tr>
                                     <td>{{$soutenance->nom_etudiant}} {{$soutenance->prenom_etudiant}}</td>
                                     <td>{{$filiere}}</td>
-                                    <td>{{ \Carbon\Carbon::parse($soutenance->date_soutenance)->format('d-m-Y') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($soutenance->date_soutenance)->format('d-m-Y') }} à {{$soutenance->heure_soutenance}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -142,7 +143,6 @@
                 </div>
             </div> --}}
         </section>
-
 
 
 

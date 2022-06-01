@@ -21,6 +21,7 @@ class CreateSoutenancesTable extends Migration
             $table->string('nom_projet');
             $table->text('num_salle');
             $table->date('date_soutenance');
+            $table->string('heure_soutenance');
             $table->string('encadrant');
             $table->double('note_finale')->nullable();
             $table->timestamps();
