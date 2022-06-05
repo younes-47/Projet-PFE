@@ -20,6 +20,7 @@
         </header>
 
         
+        
 @php
     $soutenances = \App\Models\Soutenance::all();
 @endphp

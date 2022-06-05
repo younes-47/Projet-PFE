@@ -33,18 +33,22 @@ class AdminController extends Controller
     }
     function ajouterEtudiant(Request $req)
     {
-
-        $req->validate([
+        
+        $req->validate(
+            [
             "nom" => "required",
             "prenom" => "required",
             "date_naissance" => "required",
             "adresse" => "required",
             "filiere" => "required",
             "num_telephone" => "numeric",
-            "num_etd" => "required"
+            "num_etd" => "required",
+            ],
+            [
+                'required' => 'Touts les champs sont obligatoires'
+            ]
+        );
 
-
-        ]);
 
         $etudiant = new Etudiant();
         $etudiant->nom = $req->nom;
@@ -55,10 +59,10 @@ class AdminController extends Controller
         $etudiant->filiere = $req->filiere;
         $etudiant->num_etd = $req->num_etd;
         $user = new User();
-        $user->email = $req->email;
-        $user->password = Hash::make($req->password);
+        // $user->email = $req->email;
+        $user->email = $req->prenom.".".$req->nom."@uit.ac.ma";
+        $user->password = Hash::make($req->prenom.$req->nom."2022");
         $user->role = 0;
-
         $user->user_id = $etudiant->num_etd;
         $user->save();
         $etudiant->save();
@@ -99,16 +103,21 @@ class AdminController extends Controller
     }
     function ajouterJury(Request $req)
     {
-        $req->validate([
+       
+        $req->validate(
+            [
             "nom" => "required",
             "prenom" => "required",
             "specialité" => "required",
             "grade" => "required",
             "université" => "required",
-            "etablissement" => "required"
+            "etablissement" => "required",
+            ],
+            [
+                'required' => 'Touts les champs sont obligatoires'
+            ]
+        );
 
-
-        ]);
 
         $jury = new Jury();
         $jury->nom = $req->nom;
@@ -120,8 +129,10 @@ class AdminController extends Controller
         $jury->num_jury = $req->num_jury;
 
         $user = new User();
-        $user->email = $req->email;
-        $user->password = Hash::make($req->password);
+        $user->email = $req->prenom.".".$req->nom."@uit.ac.ma";
+        $user->password = Hash::make($req->prenom.$req->nom."2022");
+        // $user->email = $req->email;
+        // $user->password = Hash::make($req->password);
         $user->role = 1;
 
         $user->user_id = $jury->num_jury;
@@ -193,6 +204,21 @@ class AdminController extends Controller
     }
     function programmerSoutenance(Request $req, $id)
     {
+        $req->validate(
+            [
+                'prenom' => 'required',
+                'nom' => 'required',
+                'date_soutenance' => 'required',
+                'heure_soutenance' => 'required',
+                'num_salle' => 'required',
+                'encadrant' => 'required',
+                'membre_jury' => 'required',
+            ],
+            [
+                'required' => 'Touts les champs sont obligatoires'
+            ]
+        );
+
 
         //nchofo wach kayn chi soutenance 3ndha nfs date o salle
         $test = Soutenance::where('date_soutenance', $req->date_soutenance)->where('num_salle', $req->num_salle)->where('heure_soutenance',$req->heure_soutenance)
@@ -264,6 +290,8 @@ class AdminController extends Controller
 
     function modifierSoutenance($id, Request $req)
     {
+
+
 
         //nchofo wach kayn chi soutenance 3ndha nfs date o salle
         $test = Soutenance::where('date_soutenance', $req->date_soutenance)->where('num_salle', $req->num_salle)->where('heure_soutenance',$req->heure_soutenance)

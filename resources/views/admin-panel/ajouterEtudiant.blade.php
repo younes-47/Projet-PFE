@@ -8,6 +8,18 @@
     <h1 class="h3 mb-0 text-gray-900">Ajouter nouveau étudiant</h1>
 </div>
 
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @break
+            @endforeach
+        </ul>
+    </div>
+@endif
+</div>
 
 
 <form method="POST" action="ajouterEtudiant" class="form-horizontal" enctype="multipart/form-data">
@@ -73,7 +85,7 @@
         </div>
 
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label class="col-md-4 control-label text-gray-800">Email</label>
             <div class="col-md-4">
                 <input type="email" placeholder="Email" class="form-control input-md" name="email" />
@@ -86,7 +98,7 @@
             <div class="col-md-4">
                 <input type="password" placeholder="Mot de passe" class="form-control input-md" name="password" />
             </div>
-        </div>
+        </div> --}}
 
 
 

@@ -18,9 +18,10 @@
  
     {{-- DatatTables Style --}}
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
-
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/notre_style.css') }}" rel="stylesheet" />
+    
     
   
 </head>
@@ -30,7 +31,7 @@
     <!-- Header -->
     <nav class="navbar navbar-light bg-light static-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ URL::to('/accueil') }}"><Img src="{{ asset('img/estLogo.png') }}"></a>
+            <a class="navbar-brand" href="{{ URL::to('/accueil') }}"><img src="{{ asset('img/estLogo.png') }}" style="width: 80%; height: 80%"></a>
             <a class="btn btn-primary" href="{{ URL::to('/login') }}">Se connecter</a>
         </div>
     </nav>
@@ -87,6 +88,8 @@
             });
         });
     </script>
+
+
 </body>
 
 </html>
