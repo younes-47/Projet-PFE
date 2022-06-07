@@ -15,14 +15,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //admin
         DB::table('users')->insert([
             
-            'email'=>'admin@est.com',
+            'email'=>'admin@uit.ac.ma',
             'role' => '2',
             'password'=>Hash::make('admin123'),
             'user_id'=>'A0'
-            
         ]);
 
         //gha bach ntestiw wach middleware khadam ola la
