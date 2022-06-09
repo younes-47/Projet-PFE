@@ -129,7 +129,7 @@
     <div class="form-group text-center">
         <label class="col-md-4 control-label text-gray-800"></label>
         <div class="col-md-4">
-            <button type="submit" class="btn btn-outline-success">Submit</button>
+            <button type="submit" class="btn btn-outline-success">Ajouter</button>
             <a href="/listeJury" class="btn btn-outline-primary">Annuler</a>
         </div>
     </div>

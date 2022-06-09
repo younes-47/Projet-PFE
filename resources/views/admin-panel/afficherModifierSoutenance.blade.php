@@ -59,8 +59,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label text-gray-800">L'heure de la Soutenance</label>
                 <div class="col-md-4">
-                    <input type="time" placeholder="Heure de soutenance" class="form-control input-md" name="heure_soutenance"
-                        value="{{ $soutenances['heure_soutenance'] }}" />
+                    <input type="time" placeholder="Heure de soutenance" class="form-control input-md"
+                        name="heure_soutenance" value="{{ $soutenances['heure_soutenance'] }}" />
                 </div>
             </div>
 
@@ -102,15 +102,16 @@
                                             {{ $info_membre->prenom }}</strong></td>
                                     <td>
                                         @if ($membre->num_jury != $soutenances['encadrant'])
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{$membre->num_jury}}" name="old_membre_jury[]"
-                                                id="supprimer">
-                                            <label class="form-check-label text-danger" for="supprimer">
-                                                <strong>Enlever</strong>
-                                            </label>
-                                        </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                    value="{{ $membre->num_jury }}" name="old_membre_jury[]"
+                                                    id="supprimer">
+                                                <label class="form-check-label text-danger" for="supprimer">
+                                                    <strong>Enlever</strong>
+                                                </label>
+                                            </div>
                                         @else
-                                        <p class="text-gray-900"><i><strong>(Encadrant)</strong></i></p>
+                                            <p class="text-gray-900"><i><strong>(Encadrant)</strong></i></p>
                                         @endif
                                     </td>
                                 </tr>
@@ -151,7 +152,7 @@
         <div class="form-group">
             <div class="col-md-4">
                 <button type="submit" class="btn btn-outline-success">Modifier</button>
-                <a href="/listeSoutenance" class="btn btn-outline-primary">Annuler</a>
+                <a href="/listeSoutenance" class="btn btn-primary">Annuler</a>
             </div>
         </div>
 
@@ -170,10 +171,9 @@
         });
 
         $("body").on("click", ".btn-supprimer", function() {
-            if(confirm('Voulez-vous vraiment supprimer ce membre de jury?')){
+            if (confirm('Voulez-vous vraiment supprimer ce membre de jury?')) {
                 $(this).parents(".duplicate").remove();
             };
         })
     </script>
-
 @endsection

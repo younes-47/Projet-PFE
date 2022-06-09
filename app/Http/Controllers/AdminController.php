@@ -49,7 +49,7 @@ class AdminController extends Controller
             ]
         );
 
-
+        
         $etudiant = new Etudiant();
         $etudiant->nom = $req->nom;
         $etudiant->prenom = $req->prenom;
@@ -60,8 +60,8 @@ class AdminController extends Controller
         $etudiant->num_etd = $req->num_etd;
         $user = new User();
         // $user->email = $req->email;
-        $user->email = $req->prenom.".".$req->nom."@uit.ac.ma";
-        $user->password = Hash::make($req->prenom.$req->nom."2022");
+        $user->email = str_replace(' ', '', strtolower($req->prenom)).".".str_replace(' ', '', strtolower($req->nom))."@uit.ac.ma";
+        $user->password = Hash::make(str_replace(' ', '', strtolower($req->prenom)).str_replace(' ', '', strtolower($req->nom))."2022");
         $user->role = 0;
         $user->user_id = $etudiant->num_etd;
         $user->save();
@@ -89,6 +89,12 @@ class AdminController extends Controller
         $etudiant->filiere = $req->input('filiere');
         $etudiant->num_etd = $req->input('num_etd');
         $etudiant->update();
+
+        //hila bgha admin ybadal mot de passe dyal etudiant (fel cas dyal etudiant nsa mot de passe)
+        User::where('role','0')->where('user_id',$req->input('num_etd'))->get('*')->first()->update([
+            'password' => bcrypt($req->new_pass_etd)
+        ]);
+
         return redirect('/listeEtudiant')->with('status', 'Etudiant est bien modifié');
     }
     function afficherEtudiant($id)
@@ -129,8 +135,8 @@ class AdminController extends Controller
         $jury->num_jury = $req->num_jury;
 
         $user = new User();
-        $user->email = $req->prenom.".".$req->nom."@uit.ac.ma";
-        $user->password = Hash::make($req->prenom.$req->nom."2022");
+        $user->email = str_replace(' ', '', strtolower($req->prenom)).".".str_replace(' ', '', strtolower($req->nom))."@uit.ac.ma";
+        $user->password = Hash::make(str_replace(' ', '', strtolower($req->prenom)).str_replace(' ', '', strtolower($req->nom))."2022");
         // $user->email = $req->email;
         // $user->password = Hash::make($req->password);
         $user->role = 1;
@@ -164,6 +170,12 @@ class AdminController extends Controller
 
         $jury->num_jury = $req->input('num_jury');
         $jury->update();
+
+        //admin y9der ybadal mot de passe dyal professeur hila nsa mot de passe dyalo o mb9ach 9adr ydkhol compte dyalo
+        User::where('role','1')->where('user_id',$req->input('num_jury'))->get('*')->first()->update([
+            'password' => bcrypt($req->new_pass_jury)
+        ]);
+
         return redirect('/listeJury')->with('status', ' Le Jury est bien modifié');
     }
     function chercherJury(Request $req)

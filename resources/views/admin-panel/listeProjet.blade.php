@@ -2,7 +2,7 @@
 @section('titre','Projets Choisis - Liste')
 @section('content')
 
-
+<br><br>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary text-center" style="font-size: x-large">Liste des projets</h6>
@@ -16,10 +16,6 @@
                             <th>Nom d'etudiant</th>
                             <th>Prenom d'etudiant</th>
                             <th>Projet</th>
-
-
-
-
                             <div class="action">
                                 <th>Action</th>
                             </div>
